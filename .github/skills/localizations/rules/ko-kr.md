@@ -24,7 +24,7 @@ English-to-Korean translation quality is best evaluated by checking for natural 
 
 ### Common Translation Mistakes to Flag
 
-- **Passive Voice Overuse:** English frequently uses passive voice, but natural Korean heavily favors active verbs; overusing passive forms makes Korean text feel robotic.
+- **Passive Voice Overuse:** English frequently uses passive voice, but natural Korean heavily favors active verbs; overusing passive forms makes Korean text feel robotic. For example, "코드 작성이 포함됩니다" should be "코드 작성을 포함합니다".
 - **Literal Phrase Translations:** Watch out for expressions like "in terms of" translated literally to "~의 관점에서" instead of natural Korean particles.
 - **Plural Marker Overuse:** English strictly tracks plurals, but adding the Korean plural marker "~들" to every noun sounds highly unnatural.
 
@@ -35,6 +35,15 @@ English-to-Korean translation quality is best evaluated by checking for natural 
 | **Accuracy (정확성)** | Are critical numbers, names, and core English meanings preserved without distortion? |
 | **Fluency (유창성)** | Does a native Korean speaker understand the text instantly without re-reading sentences? |
 | **Style Guide (스타일)** | Does the text follow Korean spelling, spacing (띄어쓰기), and punctuation rules? |
+
+## Markdown Syntaxes
+
+Here are some examples when using combination of markdown syntaxes:
+
+- English: Both `**[node.js](https://nodejs.org/)**` and `[**node.js**](https://nodejs.org/)` properly render **[node.js](https://nodejs.org/)**
+- Korean: Only `[**node.js**](https://nodejs.org/)` properly renders [**node.js**](https://nodejs.org/)
+
+It's because Korean sentences and phrases mostly comes with a word with particles. For example, this sentence "[**node.js**](https://nodejs.org/)와 npm 패키지를 설치해야 합니다" combines with the word of "node.js" and "와". Therefore, localization into Korean should consider the markdown syntax review as well.
 
 ## Localization for Technical Documents for Developers
 
