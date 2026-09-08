@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#101828"/>
+
+  <path d="M642 350 H690 Q706 350 706 366 V376 H744" fill="none" stroke="#38BDF8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M642 680 H690 Q706 680 706 664 V648 H744" fill="none" stroke="#3B82F6" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="208" y="206" width="464" height="636" rx="40" fill="#1B3555"/>
+  <rect x="192" y="190" width="464" height="636" rx="40" fill="#F8FAFC"/>
+  <rect x="252" y="254" width="242" height="24" rx="12" fill="#101828"/>
+  <rect x="252" y="300" width="166" height="14" rx="7" fill="#3B82F6"/>
+  <rect x="252" y="348" width="344" height="4" rx="2" fill="#DAE5ED"/>
+
+  <circle cx="292" cy="434" r="40" fill="#38BDF8"/>
+  <path d="M274 434 L287 447 L310 421" fill="none" stroke="#101828" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="358" y="410" width="224" height="18" rx="9" fill="#101828"/>
+  <rect x="358" y="446" width="164" height="12" rx="6" fill="#94A7B8"/>
+
+  <rect x="252" y="526" width="344" height="234" rx="28" fill="#101828"/>
+  <path d="M310 686 A114 114 0 0 1 538 686" fill="none" stroke="#F8FAFC" stroke-width="16" stroke-linecap="round"/>
+  <path d="M481 587 A114 114 0 0 1 538 686" fill="none" stroke="#38BDF8" stroke-width="16" stroke-linecap="round"/>
+  <line x1="424" y1="582" x2="424" y2="601" stroke="#F8FAFC" stroke-width="8" stroke-linecap="round"/>
+  <line x1="350" y1="612" x2="363" y2="625" stroke="#F8FAFC" stroke-width="8" stroke-linecap="round"/>
+  <line x1="498" y1="612" x2="485" y2="625" stroke="#38BDF8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M424 686 L478 632" fill="none" stroke="#3B82F6" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="424" cy="686" r="17" fill="#38BDF8"/>
+  <rect x="394" y="720" width="60" height="8" rx="4" fill="#F8FAFC"/>
+
+  <rect x="736" y="310" width="128" height="132" rx="28" fill="#172D46" stroke="#38BDF8" stroke-width="8"/>
+  <rect x="770" y="347" width="60" height="42" rx="10" fill="none" stroke="#F8FAFC" stroke-width="8"/>
+  <line x1="785" y1="391" x2="785" y2="405" stroke="#38BDF8" stroke-width="7" stroke-linecap="round"/>
+  <line x1="815" y1="391" x2="815" y2="405" stroke="#38BDF8" stroke-width="7" stroke-linecap="round"/>
+
+  <rect x="736" y="582" width="128" height="132" rx="28" fill="#172D46" stroke="#3B82F6" stroke-width="8"/>
+  <rect x="770" y="619" width="60" height="42" rx="10" fill="none" stroke="#F8FAFC" stroke-width="8"/>
+  <line x1="785" y1="663" x2="785" y2="677" stroke="#38BDF8" stroke-width="7" stroke-linecap="round"/>
+  <line x1="815" y1="663" x2="815" y2="677" stroke="#38BDF8" stroke-width="7" stroke-linecap="round"/>
+</svg>
