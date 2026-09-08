@@ -16,6 +16,7 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 ├── docs/                 # Installation and maintenance guides
 └── skills/
     └── <skill-name>/
+        ├── README.md     # Required: human-facing overview, installation, and usage
         ├── SKILL.md      # Required: skill description and usage instructions
         ├── plugin.json   # Required: individual Copilot plugin metadata
         ├── thumbnail.png # Optional: rendered thumbnail
@@ -26,9 +27,19 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 - `skills/` is the source of truth; make authored changes there, not in installation copies. Use one of the methods in the [Skills installation guide](docs/skills-installation-guide.md) to consume the skills.
 - Each skill lives in its own directory under `skills/<skill-name>/`.
 - `<skill-name>` is lowercase, hyphen-separated (kebab-case), e.g. `pptx-denote`.
-- Every skill directory **must** contain `SKILL.md` and `plugin.json`. The skill frontmatter name and plugin name must match the directory.
+- Every skill directory **must** contain `README.md`, `SKILL.md`, and `plugin.json`. The skill frontmatter name and plugin name must match the directory.
 - Supporting code goes in a `scripts/` subdirectory inside the skill.
 - Skills may include additional subdirectories for supporting resources, such as reference documents, templates, or rules, as documented in their `SKILL.md`.
+
+## README.md conventions
+
+Each skill's README is a short human-facing landing page with a descriptive title and three sections:
+
+- **What this skill is for**: Explain the purpose, expected result, and any essential prerequisites or boundaries. Link to `SKILL.md` for the authoritative workflow rather than duplicating agent instructions.
+- **Install with GitHub Copilot CLI**: Show terminal commands to register `justinyoo/skills` with `copilot plugin marketplace add`, then install the specific skill with `copilot plugin install <skill-name>@justinyoo-skills`. Explain that marketplace registration is only needed once and the complete collection already includes the skill. Link to `../../docs/skills-installation-guide.md` for other agents, installation methods, and local checkouts.
+- **Usage**: Show one realistic, copyable `/<skill-name>` prompt in a `text` code block, to run in a GitHub Copilot CLI session. Include required inputs in the example and keep additional examples, options, and detailed workflows in `SKILL.md`.
+
+Use the actual skill name in copyable commands. The root README's available-skills table links to each skill's `README.md`, not its `SKILL.md`.
 
 ## SKILL.md conventions
 
@@ -63,11 +74,12 @@ Manual authoring is the fallback. Both methods must satisfy these requirements:
 
 1. Create `skills/<skill-name>/`.
 2. Add a `SKILL.md` with valid frontmatter (`name`, `description`) following the convention above.
-3. Add `plugin.json` with the same skill name, a version matching its marketplace entry, and `"skills": "./"` to expose the root `SKILL.md` as an individual Copilot plugin.
-4. Place any executable code under the skill's `scripts/` directory and document the exact invocation in `SKILL.md`.
-5. List prerequisites (libraries, tools) and how to install them.
-6. Keep the skill self-contained, single-purpose, and idempotent where possible.
-7. Complete the [skill-change checklist](docs/repository-maintenance.md#skill-change-checklist), whether the helper generated the files or they were written manually.
+3. Add a `README.md` following the human-facing overview, installation, and usage conventions above.
+4. Add `plugin.json` with the same skill name, a version matching its marketplace entry, and `"skills": "./"` to expose the root `SKILL.md` as an individual Copilot plugin.
+5. Place any executable code under the skill's `scripts/` directory and document the exact invocation in `SKILL.md`.
+6. List prerequisites (libraries, tools) and how to install them.
+7. Keep the skill self-contained, single-purpose, and idempotent where possible.
+8. Complete the [skill-change checklist](docs/repository-maintenance.md#skill-change-checklist), whether the helper generated the files or they were written manually.
 
 ## Conventions for scripts
 

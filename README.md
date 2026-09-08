@@ -15,6 +15,7 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 ├── docs/                 # Installation and maintenance guides
 └── skills/
     └── <skill-name>/
+        ├── README.md     # Required: human-facing overview, installation, and usage
         ├── SKILL.md      # Required: skill description and usage instructions
         ├── plugin.json   # Required: individual Copilot plugin metadata
         ├── thumbnail.png # Optional: rendered thumbnail
@@ -24,23 +25,23 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 
 - Each skill lives in its own directory under `skills/<skill-name>/`.
 - `<skill-name>` is lowercase, hyphen-separated (kebab-case), e.g. `pptx-denote`.
-- Every skill directory **must** contain `SKILL.md` and `plugin.json`. The skill frontmatter name and plugin name must match the directory; the plugin's `"skills": "./"` exposes that directory's `SKILL.md`.
+- Every skill directory **must** contain `README.md`, `SKILL.md`, and `plugin.json`. The README introduces the skill, explains individual installation, and provides a usage example; `SKILL.md` remains the authoritative agent instructions. The skill frontmatter name and plugin name must match the directory; the plugin's `"skills": "./"` exposes that directory's `SKILL.md`.
 - Supporting code goes in a `scripts/` subdirectory inside the skill.
 - Skills may include additional subdirectories for supporting resources, such as reference documents, templates, or rules, as documented in their `SKILL.md`.
 
 ## Available skills
 
-| Skill                                            | Description |
-| ------------------------------------------------ | ----------- |
-| [`create-prd`](skills/create-prd/SKILL.md)       | Generate or update a product requirements document (PRD) from user-provided context and interviews to fill missing details. |
-| [`create-tdd`](skills/create-tdd/SKILL.md)       | Generate or update a technical design document (TDD) from a required PRD and TRD through design proposals and adaptive interviews, with references to existing ADRs. |
-| [`create-trd`](skills/create-trd/SKILL.md)       | Generate or update a technical requirements document (TRD) as a PRD companion through adaptive interviews, asking to create a PRD first when missing. |
-| [`localizations`](skills/localizations/SKILL.md) | Localize content into the supported target locales using locale-specific rules. |
-| [`pptx-denote`](skills/pptx-denote/SKILL.md)     | Remove all slide notes from a PowerPoint presentation using the `python-pptx` library. |
+| Skill                                             | Description |
+| ------------------------------------------------- | ----------- |
+| [`create-prd`](skills/create-prd/README.md)       | Generate or update a product requirements document (PRD) from user-provided context and interviews to fill missing details. |
+| [`create-tdd`](skills/create-tdd/README.md)       | Generate or update a technical design document (TDD) from a required PRD and TRD through design proposals and adaptive interviews, with references to existing ADRs. |
+| [`create-trd`](skills/create-trd/README.md)       | Generate or update a technical requirements document (TRD) as a PRD companion through adaptive interviews, asking to create a PRD first when missing. |
+| [`localizations`](skills/localizations/README.md) | Localize content into the supported target locales using locale-specific rules. |
+| [`pptx-denote`](skills/pptx-denote/README.md)     | Remove all slide notes from a PowerPoint presentation using the `python-pptx` library. |
 
 ## Using a skill
 
-1. Install the skills for your agent using the instructions below.
+1. Open a skill's README from the table above for an overview and individual installation, or install the collection using the instructions below.
 1. Open the skill's `SKILL.md` and read the **How it works** section.
 1. Ask your agent to use the skill.
 
@@ -93,10 +94,11 @@ If the helper is unavailable or you prefer to author the skill directly:
 
 1. Create `skills/<skill-name>/`.
 2. Add a `SKILL.md` with valid YAML frontmatter (`name`, `description`).
-3. Add `plugin.json` with the same skill name, a version matching its marketplace entry, and `"skills": "./"`.
-4. Place any executable code under the skill's `scripts/` directory and document the exact invocation in `SKILL.md`.
-5. List prerequisites (libraries, tools) and how to install them.
-6. Keep the skill self-contained, single-purpose, and idempotent where possible.
+3. Add a `README.md` explaining what the skill is for, how to install it with GitHub Copilot CLI, and one realistic usage prompt. Link to `SKILL.md` for the workflow and the shared installation guide for other methods.
+4. Add `plugin.json` with the same skill name, a version matching its marketplace entry, and `"skills": "./"`.
+5. Place any executable code under the skill's `scripts/` directory and document the exact invocation in `SKILL.md`.
+6. List prerequisites (libraries, tools) and how to install them.
+7. Keep the skill self-contained, single-purpose, and idempotent where possible.
 
 With either method, follow the [skill-change checklist](docs/repository-maintenance.md#skill-change-checklist) to keep the README, marketplace entries, plugin metadata, and any applicable dependency configuration consistent. See [AGENTS.md](AGENTS.md) for authoring conventions.
 

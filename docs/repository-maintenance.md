@@ -16,10 +16,11 @@ When adding, renaming, updating, or removing a skill, reconcile the applicable e
 
 | File or area                                        | Required consistency                                                                                                                                    |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `skills/<skill-name>/README.md`                     | Explain the purpose and individual GitHub Copilot CLI installation, and provide one realistic usage prompt. Keep skill names current in commands and link to `SKILL.md` and the shared installation guide. |
 | `skills/<skill-name>/SKILL.md`                      | Keep the frontmatter `name` equal to the directory name, provide a description, and document behavior and runtime prerequisites.                        |
 | `skills/<skill-name>/plugin.json`                   | Use the same name, a version matching the individual marketplace entry, and `"skills": "./"` to expose the root `SKILL.md`.                             |
 | [marketplace.json](../marketplace.json)             | Maintain the individual plugin entry and its `./skills/<skill-name>` source. Preserve the separate collection plugin entry.                             |
-| [README.md](../README.md#available-skills)          | Keep the available-skills table and its links current.                                                                                                  |
+| [README.md](../README.md#available-skills)          | Keep the available-skills table current and link each entry to the skill's `README.md`.                                                                  |
 | Collection [plugin.json](../plugin.json)            | Keep skill keywords consistent with the authored collection. Do not confuse this manifest with each skill's own `plugin.json`.                          |
 | [.github/dependabot.yml](../.github/dependabot.yml) | Add or remove an npm entry only when the skill has an actual `package.json`; do not create dummy packages for documentation-only or Python-only skills. |
 | Supporting files                                    | Keep scripts, references, locale rules, and any thumbnail files consistent with the skill. Preserve unrelated authored content.                         |
