@@ -4,15 +4,23 @@ Assess the content and intended use, not the number of headings, pages, answers,
 
 ## Content checks
 
+### Context and boundaries
+
 - The problem, primary user, current experience, and intended outcome are clear.
 - Evidence and consequential decisions have traceable sources. Hypotheses, proposals, and inaccessible information are labeled honestly.
 - Goals describe outcomes. Metrics identify measurement methods, baselines, targets, and evaluation windows where known; missing values are explicit.
 - Scope and priorities are understandable. Non-goals, release exclusions, and deferred possibilities are not conflated.
+
+### Requirements and coverage
+
 - Essential journeys describe observable behavior, including relevant alternate, failure, empty, boundary, and unauthorized cases.
 - In-scope requirements have stable IDs, rationale, priority or release scope, and testable acceptance criteria, or explicit gaps where these are unresolved.
 - Applicable quality requirements are specific enough to assess. Terms such as "fast", "scalable", "intuitive", and "secure" do not stand in for criteria.
 - Conditional modules were considered proportionately. Unknown applicability was not treated as an exclusion; consequential exclusions have a reason.
 - Success metrics, requirement acceptance criteria, and release criteria are distinct and consistent.
+
+### Safety, updates, and document integrity
+
 - Assumptions, dependencies, risks, and open questions include their impact and known next action or owner. Unknown assignments remain explicit.
 - Product constraints are preserved; unnecessary implementation prescriptions and raw interview history are excluded or linked elsewhere.
 - The PRD is internally consistent, with no unresolved contradiction hidden by a confident summary or silently changed scope.
@@ -35,9 +43,8 @@ A blocking unknown is one whose resolution could materially change agreed scope,
 ## Final pass
 
 1. Compare the latest user decisions with the draft and update all affected sections, preserving stable requirement IDs.
-2. Perform the [reviewer pass](../SKILL.md#6-review-and-cross-check) against the source context and checklist. Correct supported drafting errors and record unresolved findings with affected sections or requirement IDs and their impact. Do not treat reviewer feedback as approval.
-3. Resolve the most important gap through a focused question, or record it if deferred. Recheck affected areas after corrections. Do not ask further
-   questions after an explicit pause or stop.
+2. Perform the [reviewer pass](../SKILL.md#6-review-and-reconcile) against the source context and checklist. Correct supported drafting errors and record unresolved findings with affected sections or requirement IDs and their impact. Do not treat reviewer feedback as approval.
+3. Resolve the most important gap through a focused question, or record it if deferred. Recheck affected areas after corrections. Do not ask further questions after an explicit pause or stop.
 4. Assign the supported status and make material blockers easy to find.
 5. Save the current draft at the authorized path without overwriting unrelated content. If saving is unavailable, return the Markdown and disclose that.
 6. State the location, status, and material unresolved blockers without claiming approval or completeness beyond what the conversation supports.
