@@ -31,6 +31,7 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 
 | Skill | Description |
 | ----- | ----------- |
+| [`create-prd`](.github/skills/create-prd/SKILL.md) | Generate a product requirements document (PRD) from user-provided context and interviews to fill missing details. |
 | [`pptx-denote`](.github/skills/pptx-denote/SKILL.md) | Remove all slide notes from a PowerPoint presentation using the `python-pptx` library. |
 
 ## Using a skill
