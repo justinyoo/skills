@@ -13,6 +13,11 @@ update its entry in [README.md](../README.md) and
 [plugin.json](../plugin.json). The other agent manifests point to the complete
 collection and canonical `skills/` directory.
 
+For individual Copilot plugin installation, each skill has a `plugin.json`
+inside its directory. Keep its name and version consistent with the marketplace
+entry, and set `"skills": "./"` to expose the existing root `SKILL.md` without
+duplicating the skill's content.
+
 Authoring helpers are optional external tools. Use an installation already
 available to your agent. If `create-skill` is unavailable and needed, obtain
 approval before installing it on demand, for example:

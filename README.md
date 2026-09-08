@@ -5,7 +5,7 @@ A curated collection of **skills** for AI coding agents. A skill packages domain
 Agents discover a skill by reading its `SKILL.md`, then follow the instructions and invoke the bundled scripts as needed.
 
 > [!NOTE]
-> Install individual skills with the [skills CLI](#install-with-the-skills-cli), or install the collection through your agent's [native marketplace, plugin, or extension workflow](#install-through-marketplaces-and-plugins). Choose one method per agent to avoid duplicate skill installations.
+> Start with the [GitHub Copilot example](#installing-skills) below. See the [Skills installation guide](docs/skills-installation-guide.md) for other agents, installation scopes, local checkouts, and native marketplace/plugin methods.
 
 ## Repository structure
 
@@ -38,127 +38,31 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 
 1. Install the skills for your agent using the instructions below.
 1. Open the skill's `SKILL.md` and read the **How it works** section.
-1. Run a prompt with the slash (`/`) command.
+1. Ask your agent to use the skill.
 
-   For example, after installing with the skills CLI, remove notes from a PowerPoint file with:
+   For example, ask GitHub Copilot CLI:
 
+    ```text
+    Use the pptx-denote skill to remove speaker notes from "my-presentation.pptx".
     ```
-    /pptx-denote <my-pptx-file-to-remove-notes>.pptx
-    ```
 
-Native plugins can namespace skill names. See the agent-specific instructions below; for example, Claude Code exposes this skill as `/justinyoo-skills:pptx-denote` when installed as part of the plugin.
+## Installing skills
 
-## Install with the skills CLI
-
-From the project where you want to use these skills, run the standard [skills installer](https://github.com/vercel-labs/skills). Node.js and npm are required; `npx` runs the installer on demand:
-
-### GitHub Copilot
-
-```sh
-npx skills add justinyoo/skills --skill '*' --agent github-copilot
-```
-
-### Claude Code
-
-[Claude Code](https://code.claude.com/docs/en/overview) uses the same installer with a different agent selection:
-
-```sh
-npx skills add justinyoo/skills --skill '*' --agent claude-code
-```
-
-Both commands install into the current project by default. Add `-g` for a user-wide installation across projects, or replace `'*'` with a specific skill name. The installer also supports agent identifiers such as `codex`, `cursor`, and `gemini-cli`; use the appropriate value for `--agent`.
-
-### Using a local checkout
-
-To install the skills from this checkout rather than the remote repository, run from the repository root:
-
-```sh
-npx skills add . --skill '*' --agent github-copilot
-```
-
-Use `--agent claude-code` for Claude Code. Always author changes under `skills/`, not in installer-managed copies. Cloning the repository alone does not install the skills for an agent.
-
-## Install through marketplaces and plugins
-
-The collection's plugin/extension identifier is **`justinyoo-skills`**. Its marketplace identifier is also **`justinyoo-skills`**. The native flows below install the complete collection; use the skills CLI when you want to select individual skills.
-
-Use a current agent version with the relevant plugin support, and review its trust prompts. Organization policies may restrict custom marketplaces or local plugins. These files define this repository's own distribution sources; they do not imply a listing in any vendor's public marketplace.
-
-### GitHub Copilot CLI
-
-Install the collection directly from GitHub:
-
-```sh
-copilot plugin install justinyoo/skills
-```
-
-Alternatively, register this repository as a marketplace, browse it, and install the collection:
+With GitHub Copilot CLI installed, add this repository as a marketplace, then install the collection's plugin from it:
 
 ```sh
 copilot plugin marketplace add justinyoo/skills
-copilot plugin marketplace browse justinyoo-skills
 copilot plugin install justinyoo-skills@justinyoo-skills
 ```
 
-Use `copilot plugin list` to inspect installed plugins. These are terminal commands; inside an interactive Copilot CLI session, the equivalent commands begin with `/plugin`. See [Copilot's plugin installation guide](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing).
-
-### Claude Code CLI
-
-Inside an interactive Claude Code session, add the marketplace and install its collection plugin:
-
-```text
-/plugin marketplace add justinyoo/skills
-/plugin install justinyoo-skills@justinyoo-skills
-```
-
-Open `/plugin` to review the installed plugin and its scope. Follow any reload instruction shown by the installer, or start a new session. Plugin skills are namespaced, for example:
-
-```text
-/justinyoo-skills:create-prd Create a PRD for my project.
-```
-
-The marketplace is defined in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json). See [Claude Code's marketplace installation guide](https://code.claude.com/docs/en/discover-plugins).
-
-### Codex CLI and ChatGPT desktop
-
-Register the repository marketplace from the terminal:
+The `justinyoo-skills` plugin includes all skills in this collection. Alternatively, after registering the marketplace, browse and install an individual skill:
 
 ```sh
-codex plugin marketplace add justinyoo/skills
-codex plugin marketplace list
+copilot plugin marketplace browse justinyoo-skills
+copilot plugin install <skill-name>@justinyoo-skills
 ```
 
-In an interactive Codex CLI session, run `/plugins`, select the **Skills for AI Coding Agents** marketplace, and install **justinyoo-skills**. Start a new session to use its bundled skills.
-
-For a local checkout opened in Codex in the ChatGPT desktop app, [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json) supplies the repo-scoped marketplace. Restart the app after adding or changing the local marketplace, then select it in **Plugins** and install the collection. Repo/personal marketplace availability depends on the surface and workspace policy; this is separate from the public plugin directory.
-
-See OpenAI's [marketplace setup reference](https://developers.openai.com/plugins/build/plugins#add-a-marketplace-from-the-cli) and [plugin installation guide](https://learn.chatgpt.com/docs/plugins). Native plugins are not available in the Codex IDE extension; use the skills installer for that workflow.
-
-### Cursor
-
-Cursor supports this repository's root [Agent Plugin manifest](plugin.json). Its documented native marketplace flow uses the UI:
-
-1. On a Teams or Enterprise plan, open **Dashboard > Plugins > Team Marketplaces > Add Marketplace** and choose **Import from Repo**.
-2. Enter `https://github.com/justinyoo/skills`, review **justinyoo-skills**, and configure marketplace access. Enterprise may require an administrator.
-3. In Cursor, open **Customize**, find the collection in the team marketplace, and select **Install**.
-
-For local use without a team marketplace, place the repository's plugin files under `<home>/.cursor/plugins/local/justinyoo-skills/`, keeping `plugin.json` and `skills/` at that directory's root. Restart Cursor or run **Developer: Reload Window**, then inspect **Customize**. This requires local plugin imports to be allowed by your organization. The skills CLI is another option when local or team plugins are unavailable.
-
-See [Cursor's plugin and marketplace guide](https://cursor.com/docs/plugins).
-
-### Gemini CLI
-
-Gemini packages the collection as an extension using [gemini-extension.json](gemini-extension.json). From a terminal, with Git available:
-
-```sh
-gemini extensions install https://github.com/justinyoo/skills
-```
-
-Restart Gemini CLI after installation, then use `/extensions list` in the interactive session to inspect **justinyoo-skills**. Extension management commands such as `gemini extensions install` run in the terminal, not inside the interactive session. See [Gemini CLI's extension reference](https://geminicli.com/docs/extensions/reference/).
-
-### Trying native plugins from a local checkout
-
-For Copilot CLI, Claude Code, and Codex, replace `justinyoo/skills` with `.` in their **marketplace add** command while working at this repository's root, then install through the same marketplace flow. For Gemini, use `gemini extensions install .`. Cursor's local-plugin directory flow is described above.
+Replace `<skill-name>` with a listed name, such as `create-prd`. Choose the collection or individual plugins to avoid installing the same skill twice. For direct plugin installation, the `npx skills` method, local checkouts, and other coding agents, see the [installation guide](docs/skills-installation-guide.md).
 
 ## Adding a new skill
 
@@ -170,7 +74,7 @@ Use the external `create-skill` skill with your coding agent. Reuse an installat
 npx skills add jongio/skills --skill create-skill -g --agent github-copilot
 ```
 
-Use `--agent claude-code` for Claude Code. Then ask your agent to use `create-skill`, for example:
+For other agent identifiers, see the [installation guide](docs/skills-installation-guide.md#install-with-the-skills-cli). Then ask your agent to use `create-skill`, for example:
 
 ```text
 Use create-skill to create a skill named <skill-name> for <task>.
@@ -189,7 +93,7 @@ If the helper is unavailable or you prefer to author the skill directly:
 4. List prerequisites (libraries, tools) and how to install them.
 5. Keep the skill self-contained, single-purpose, and idempotent where possible.
 
-With either method, keep the [available-skills table](#available-skills), [marketplace registration](marketplace.json), and skill keywords in [plugin.json](plugin.json) consistent with the new skill. See [AGENTS.md](AGENTS.md) for the full set of conventions.
+With either method, add a matching `plugin.json` inside the skill directory for individual Copilot plugin installation, and keep the [available-skills table](#available-skills), [marketplace registration](marketplace.json), and skill keywords in the collection's [plugin.json](plugin.json) consistent with the new skill. See [AGENTS.md](AGENTS.md) for the full set of conventions.
 
 ## Contributing
 

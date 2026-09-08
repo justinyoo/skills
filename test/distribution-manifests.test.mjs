@@ -110,6 +110,13 @@ test("Copilot marketplace registers every canonical skill", async () => {
     assert.match(entry.source, /^\.\/(?:skills\/[a-z0-9-]+)?$/);
     const resolved = path.resolve(root, entry.source);
     assert.equal(path.relative(root, resolved).startsWith(".."), false);
+    const entryManifest = JSON.parse(await readFile(path.join(resolved, "plugin.json"), "utf8"));
+    assert.equal(entryManifest.name, entry.name);
+    assert.equal(entryManifest.version, entry.version);
+    if (entry.name !== aggregate) {
+      assert.equal(entryManifest.skills, "./");
+      assert.ok(existsSync(path.join(resolved, entryManifest.skills, "SKILL.md")));
+    }
   }
 });
 

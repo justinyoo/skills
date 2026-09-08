@@ -84,6 +84,8 @@ Frontmatter rules:
 
 Maintain `README.md`, `marketplace.json`, and the skill keywords in `plugin.json` when adding, renaming, or removing a skill. The other host manifests point to the complete collection and canonical `skills/` directory.
 
+Each skill also needs its own `skills/<skill-name>/plugin.json` for individual Copilot plugin installation. Its `name` must match the skill directory, its version must match the marketplace entry, and `"skills": "./"` points to the existing skill at that plugin's root.
+
 Authoring helpers such as `create-skill` are external tools. Use an available installation or obtain approval to install one on demand; do not vendor the helper into this collection. Preserve repository-specific content when following an external generator's instructions.
 
 CI installs the pinned Vally dependencies on its runner. Only dependency manifests, lockfiles, repository-specific checks, and link policy are committed. See `docs/repository-maintenance.md` for local equivalents. There is no managed-state directory, local repository generator, or GitHub Pages deployment.
