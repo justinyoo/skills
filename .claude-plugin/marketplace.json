@@ -1,0 +1,16 @@
+{
+  "name": "justinyoo-skills",
+  "description": "A curated collection of skills for AI coding agents.",
+  "owner": {
+    "name": "Justin Yoo",
+    "url": "https://github.com/justinyoo"
+  },
+  "plugins": [
+    {
+      "name": "justinyoo-skills",
+      "source": "./",
+      "description": "A curated collection of skills for AI coding agents.",
+      "version": "1.0.0"
+    }
+  ]
+}

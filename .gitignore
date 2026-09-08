@@ -483,3 +483,10 @@ $RECYCLE.BIN/
 
 .DS_Store
 .claude/
+
+# Installer-managed skill copies; author skills under skills/ instead.
+/.agents/skills/
+/.github/skills/
+
+# Validation output
+vally-results/

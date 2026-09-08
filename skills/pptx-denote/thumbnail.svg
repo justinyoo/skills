@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#101828"/>
+
+  <rect x="264" y="206" width="548" height="384" rx="32" fill="#493722"/>
+  <rect x="236" y="234" width="548" height="384" rx="32" fill="#96652A"/>
+  <rect x="208" y="262" width="548" height="384" rx="32" fill="#F8FAFC"/>
+
+  <rect x="266" y="320" width="228" height="22" rx="11" fill="#101828"/>
+  <rect x="266" y="361" width="156" height="12" rx="6" fill="#9DAAB7"/>
+
+  <rect x="276" y="478" width="54" height="98" rx="10" fill="#FBBF24"/>
+  <rect x="352" y="444" width="54" height="132" rx="10" fill="#F97316"/>
+  <rect x="428" y="408" width="54" height="168" rx="10" fill="#FBBF24"/>
+  <path d="M264 586 H496" fill="none" stroke="#101828" stroke-width="8" stroke-linecap="round"/>
+
+  <rect x="536" y="453" width="142" height="14" rx="7" fill="#101828"/>
+  <rect x="536" y="486" width="108" height="12" rx="6" fill="#9DAAB7"/>
+  <rect x="536" y="519" width="126" height="12" rx="6" fill="#9DAAB7"/>
+
+  <circle cx="666" cy="346" r="40" fill="#FBBF24"/>
+  <path d="M648 346 L661 359 L685 333" fill="none" stroke="#101828" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M540 604 H706 Q740 604 740 638 V708 Q740 742 706 742 H601 L551 784 Q540 793 540 778 V742 Q508 742 508 708 V638 Q508 604 540 604 Z" fill="#101828" stroke="#101828" stroke-width="22" stroke-linejoin="round"/>
+  <path d="M540 604 H706 Q740 604 740 638 V708 Q740 742 706 742 H601 L551 784 Q540 793 540 778 V742 Q508 742 508 708 V638 Q508 604 540 604 Z" fill="#392D23" stroke="#FBBF24" stroke-width="8" stroke-linejoin="round"/>
+  <rect x="546" y="645" width="100" height="12" rx="6" fill="#F8FAFC"/>
+  <rect x="546" y="680" width="72" height="12" rx="6" fill="#F8FAFC"/>
+
+  <path d="M686 609 L755 646 L721 705 L659 665 Z" fill="#101828"/>
+  <g transform="rotate(-38 743 636)">
+    <rect x="659" y="590" width="168" height="92" rx="17" fill="#F8FAFC" stroke="#101828" stroke-width="12"/>
+    <path d="M735 590 H810 Q827 590 827 607 V665 Q827 682 810 682 H735 Z" fill="#F97316"/>
+    <line x1="735" y1="596" x2="735" y2="676" stroke="#101828" stroke-width="7"/>
+  </g>
+
+  <path d="M762 722 L776 728 M786 695 L798 699 M738 756 L750 765" fill="none" stroke="#FBBF24" stroke-width="7" stroke-linecap="round"/>
+</svg>

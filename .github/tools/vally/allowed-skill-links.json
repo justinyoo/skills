@@ -1,0 +1,9 @@
+{
+  "create-tdd": [
+    "../create-prd/SKILL.md",
+    "../create-trd/SKILL.md"
+  ],
+  "create-trd": [
+    "../create-prd/SKILL.md"
+  ]
+}

@@ -1,0 +1,87 @@
+# Portions adapted from jongio/skills, copyright (c) 2026 Jon Gallant.
+# SPDX-License-Identifier: MIT. See the repository LICENSE for license terms.
+name: Skill Lint
+
+on:
+  pull_request:
+    paths:
+      - "skills/**"
+      - "test/**"
+      - ".github/tools/vally/**"
+      - ".github/scripts/**"
+      - ".github/workflows/**"
+      - "plugin.json"
+      - "marketplace.json"
+      - ".agents/plugins/**"
+      - ".codex-plugin/**"
+      - ".claude-plugin/**"
+      - ".cursor-plugin/**"
+      - "gemini-extension.json"
+      - ".vally.yaml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "test/**"
+      - ".github/tools/vally/**"
+      - ".github/scripts/**"
+      - ".github/workflows/**"
+      - "plugin.json"
+      - "marketplace.json"
+      - ".agents/plugins/**"
+      - ".codex-plugin/**"
+      - ".claude-plugin/**"
+      - ".cursor-plugin/**"
+      - "gemini-extension.json"
+      - ".vally.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      VALLY_TELEMETRY_OPTOUT: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: ".github/tools/vally/package-lock.json"
+
+      - name: Install locked validation tools
+        run: |
+          set -euo pipefail
+          SKILLS_VALIDATION_DIR="$RUNNER_TEMP/skills-validation"
+          echo "SKILLS_VALIDATION_DIR=$SKILLS_VALIDATION_DIR" >> "$GITHUB_ENV"
+          mkdir -p "$SKILLS_VALIDATION_DIR"
+          cp .github/tools/vally/package.json .github/tools/vally/package-lock.json "$SKILLS_VALIDATION_DIR/"
+          npm ci --prefix "$SKILLS_VALIDATION_DIR" --ignore-scripts --no-audit --no-fund
+          echo "$SKILLS_VALIDATION_DIR/node_modules/.bin" >> "$GITHUB_PATH"
+
+      - name: Validate distribution manifests
+        run: node --test test/*.test.mjs
+
+      - name: Validate skills and eval specifications
+        run: |
+          set -euo pipefail
+          node .github/scripts/lint-skills.mjs skills
+          for dir in skills/*/; do
+            [ -f "$dir/SKILL.md" ] || continue
+            if [ -f "$dir/package.json" ]; then
+              npm ci --prefix "$dir" --ignore-scripts
+              npm test --prefix "$dir"
+            fi
+            if [ -d "$dir/evals" ]; then
+              while IFS= read -r -d '' spec; do
+                vally lint --eval-spec "$spec" --strict
+              done < <(find "$dir/evals" -name eval.yaml -type f -print0)
+            fi
+          done

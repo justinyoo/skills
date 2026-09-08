@@ -1,0 +1,7 @@
+{
+  "name": "create-prd",
+  "version": "1.0.0",
+  "description": "Generate or update a product requirements document through adaptive interviews.",
+  "license": "MIT",
+  "skills": "./"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "create-tdd",
+  "version": "1.0.0",
+  "description": "Generate or update a technical design from a PRD and TRD.",
+  "license": "MIT",
+  "skills": "./"
+}

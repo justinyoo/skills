@@ -59,7 +59,7 @@ Japanese developer documentation commonly combines translated concepts, katakana
 - Use established forms such as **文字列**, **配列**, **依存関係**, **インスタンス**, **スレッド**, **リポジトリ**, and **コールバック** when they match the product glossary.
 - Keep **API**, **SDK**, protocol names, product names, and identifiers in their established Latin-script form.
 - For an unfamiliar critical term, the first occurrence in a file may include the English form in parentheses, for example **依存関係 (dependency)**. Apply this only when it improves lookup or disambiguation.
-- Keep variables, functions, APIs, CLI commands (`npm install`), file names, and code exactly as written. Translate human-language code comments and explanatory strings only when they are not programmatically significant.
+- Keep variables, functions, APIs, CLI commands (`npm install`), paths, file names, string literals, and other code exactly as written. Translate only explanatory human-language comments that are not machine-significant; preserve comment directives and string literals even when they contain readable prose.
 
 #### Tone and Instructions
 
@@ -121,7 +121,7 @@ Criterion 2 and Criterion 7 still apply to occasional code or links in otherwise
 | 4 | **Register & Tone** | Body prose consistently uses audience-appropriate **です・ます調**; headings and labels follow coherent conventions. | One isolated ending slip without a perceived register shift. | Two or more style shifts, blunt imperatives, or unsuitable honorific language. | Register is mixed or inappropriate throughout. |
 | 5 | **Terminology & Consistency** | Japanese equivalents, katakana forms, acronyms, and first-mention English references follow the glossary consistently. | One minor recognizable inconsistency. | Two or more inconsistent forms or one misleading term. | Terminology and script forms are unreliable throughout. |
 | 6 | **Cultural & Linguistic Naturalness** | Subjects are omitted naturally; directness, passives, and modifier length suit Japanese documentation. | One or two harmless stylistic nits. | Several literal pronouns, padded constructions, or overlong modifiers occur. | Literal English discourse patterns dominate. |
-| 7 | **Code & Command Integrity** *(technical only — Tier A severity: any violation caps this at ≤2)* | Identifiers, APIs, commands, paths, and file names are unchanged; only human-language comments are translated. | — (no trivial tolerance) | A single code element or command is altered. | Code and commands are repeatedly translated or corrupted. |
+| 7 | **Code & Command Integrity** *(technical only — Tier A severity: any violation caps this at ≤2)* | Identifiers, APIs, commands, paths, file names, string literals, and machine-significant comments are unchanged; only explanatory human-language comments that are not machine-significant are translated. | — (no trivial tolerance) | A single code element, command, string literal, or machine-significant comment is altered. | Code and commands are repeatedly translated or corrupted. |
 | 8 | **Developer Terminology Convention** *(technical only)* | Terms match Japanese developer usage and the product glossary without forced translation. | One borderline but recognizable choice. | A nonstandard translation or transliteration would confuse a developer. | Technical concepts are consistently unnatural or unrecognizable. |
 
 > Criterion 7 has Tier A severity in practice: any altered command or identifier fails the document.

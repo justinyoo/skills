@@ -22,7 +22,7 @@ def remove_notes(input_path: Path, output_path: Path) -> int:
         if not slide.has_notes_slide:
             continue
         text_frame = slide.notes_slide.notes_text_frame
-        if text_frame.text:
+        if text_frame is not None and text_frame.text:
             text_frame.clear()
             cleared += 1
 

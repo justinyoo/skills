@@ -1,0 +1,48 @@
+{
+  "name": "justinyoo-skills",
+  "owner": {
+    "name": "Justin Yoo",
+    "url": "https://github.com/justinyoo"
+  },
+  "metadata": {
+    "description": "A curated collection of skills for AI coding agents."
+  },
+  "plugins": [
+  {
+    "name": "justinyoo-skills",
+    "source": "./",
+    "description": "Install the complete Skills for AI Coding Agents collection.",
+    "version": "1.0.0"
+  },
+  {
+    "name": "create-prd",
+    "source": "./skills/create-prd",
+    "description": "A skill that generates or updates a product requirements document (PRD) from user-provided context through adaptive interviews to fill missing details.",
+    "version": "1.0.0"
+  },
+  {
+    "name": "create-tdd",
+    "source": "./skills/create-tdd",
+    "description": "A skill that generates or updates a technical design document (TDD) from a required PRD and TRD through grounded design proposals and adaptive interviews, referencing existing ADRs without automatically creating them.",
+    "version": "1.0.0"
+  },
+  {
+    "name": "create-trd",
+    "source": "./skills/create-trd",
+    "description": "A skill that generates or updates a technical requirements document (TRD) as a PRD companion through adaptive interviews, asking to create a PRD first when one is missing.",
+    "version": "1.0.0"
+  },
+  {
+    "name": "localizations",
+    "source": "./skills/localizations",
+    "description": "A skill that localizes contents into given locales.",
+    "version": "1.0.0"
+  },
+  {
+    "name": "pptx-denote",
+    "source": "./skills/pptx-denote",
+    "description": "A skill that allows you to remove all the slide notes in a PowerPoint presentation using the `python-pptx` library.",
+    "version": "1.0.0"
+  }
+]
+}

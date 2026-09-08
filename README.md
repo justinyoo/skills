@@ -5,77 +5,106 @@ A curated collection of **skills** for AI coding agents. A skill packages domain
 Agents discover a skill by reading its `SKILL.md`, then follow the instructions and invoke the bundled scripts as needed.
 
 > [!NOTE]
-> This repository primarily focuses on [GitHub Copilot](https://docs.github.com/copilot). If you want to apply the skills to [Claud Code](https://docs.anthropic.com/docs/claude-code), follow the [Using with Claude Code](#using-with-claude-code) section.
+> Start with the [GitHub Copilot example](#installing-skills) below. See the [Skills installation guide](docs/skills-installation-guide.md) for other agents, installation scopes, local checkouts, and native marketplace/plugin methods.
 
 ## Repository structure
 
 ```text
 .
 ├── AGENTS.md             # Guidance for AI coding agents working in this repository
-├── scripts/              # Helper scripts (e.g. sync skills to .claude)
-│   ├── sync-skills.sh
-│   └── sync-skills.ps1
-└── .github/
-    └── skills/
-        └── <skill-name>/
-            ├── SKILL.md      # Required: skill description and usage instructions
-            └── scripts/      # Optional: supporting scripts the skill runs
+├── docs/                 # Installation and maintenance guides
+└── skills/
+    └── <skill-name>/
+        ├── SKILL.md      # Required: skill description and usage instructions
+        ├── plugin.json   # Required: individual Copilot plugin metadata
+        ├── thumbnail.png # Optional: rendered thumbnail
+        ├── thumbnail.svg # Optional: editable thumbnail source
+        └── scripts/      # Optional: supporting scripts the skill runs
 ```
 
-- Each skill lives in its own directory under `.github/skills/<skill-name>/`.
+- Each skill lives in its own directory under `skills/<skill-name>/`.
 - `<skill-name>` is lowercase, hyphen-separated (kebab-case), e.g. `pptx-denote`.
-- Every skill directory **must** contain a `SKILL.md`.
+- Every skill directory **must** contain `SKILL.md` and `plugin.json`. The skill frontmatter name and plugin name must match the directory; the plugin's `"skills": "./"` exposes that directory's `SKILL.md`.
 - Supporting code goes in a `scripts/` subdirectory inside the skill.
 - Skills may include additional subdirectories for supporting resources, such as reference documents, templates, or rules, as documented in their `SKILL.md`.
 
 ## Available skills
 
-| Skill                                                    | Description |
-| -------------------------------------------------------- | ----------- |
-| [`create-prd`](.github/skills/create-prd/SKILL.md)       | Generate or update a product requirements document (PRD) from user-provided context and interviews to fill missing details. |
-| [`create-tdd`](.github/skills/create-tdd/SKILL.md)       | Generate or update a technical design document (TDD) from a required PRD and TRD through design proposals and adaptive interviews, with references to existing ADRs. |
-| [`create-trd`](.github/skills/create-trd/SKILL.md)       | Generate or update a technical requirements document (TRD) as a PRD companion through adaptive interviews, asking to create a PRD first when missing. |
-| [`localizations`](.github/skills/localizations/SKILL.md) | Localize content into the supported target locales using locale-specific rules. |
-| [`pptx-denote`](.github/skills/pptx-denote/SKILL.md)     | Remove all slide notes from a PowerPoint presentation using the `python-pptx` library. |
+| Skill                                            | Description |
+| ------------------------------------------------ | ----------- |
+| [`create-prd`](skills/create-prd/SKILL.md)       | Generate or update a product requirements document (PRD) from user-provided context and interviews to fill missing details. |
+| [`create-tdd`](skills/create-tdd/SKILL.md)       | Generate or update a technical design document (TDD) from a required PRD and TRD through design proposals and adaptive interviews, with references to existing ADRs. |
+| [`create-trd`](skills/create-trd/SKILL.md)       | Generate or update a technical requirements document (TRD) as a PRD companion through adaptive interviews, asking to create a PRD first when missing. |
+| [`localizations`](skills/localizations/SKILL.md) | Localize content into the supported target locales using locale-specific rules. |
+| [`pptx-denote`](skills/pptx-denote/SKILL.md)     | Remove all slide notes from a PowerPoint presentation using the `python-pptx` library. |
 
 ## Using a skill
 
+1. Install the skills for your agent using the instructions below.
 1. Open the skill's `SKILL.md` and read the **How it works** section.
-1. Run a prompt with the slash (`/`) command.
+1. Ask your agent to use the skill.
 
-   For example, to remove notes from a PowerPoint file, run the prompt like:
+   For example, ask GitHub Copilot CLI:
 
+    ```text
+    Use the pptx-denote skill to remove speaker notes from "my-presentation.pptx".
     ```
-    /pptx-denote <my-pptx-file-to-remove-notes>.pptx
-    ```
 
-## Using with Claude Code
+## Installing skills
 
-Skills in this repository live under `.github/skills/`, which is the location used by GitHub Copilot and VS Code. [Claude Code](https://docs.anthropic.com/docs/claude-code) discovers skills from `.claude/skills/` instead, so the skills need to be copied there.
+With GitHub Copilot CLI installed, add this repository as a marketplace, then install the collection's plugin from it:
 
-The `SKILL.md` format is the same for both tools, so a copy is all that's required. Use the bundled sync scripts to copy every skill into `.claude/skills/` (skills that already exist are left untouched):
-
-```bash
-# zsh/bash
-./scripts/sync-skills.sh
+```sh
+copilot plugin marketplace add justinyoo/skills
+copilot plugin install justinyoo-skills@justinyoo-skills
 ```
 
-```powershell
-# PowerShell
-./scripts/sync-skills.ps1
+The `justinyoo-skills` plugin includes all skills in this collection. Alternatively, after registering the marketplace, browse and install an individual skill:
+
+```sh
+copilot plugin marketplace browse justinyoo-skills
+copilot plugin install <skill-name>@justinyoo-skills
 ```
 
-After syncing, Claude Code loads each skill's `name` and `description`, then reads the full `SKILL.md` when a task matches. The `.claude/` directory is ignored by Git, so the synced copies stay local to your machine.
+Replace `<skill-name>` with a listed name, such as `create-prd`. Choose the collection or individual plugins to avoid installing the same skill twice. For direct plugin installation, the `npx skills` method, local checkouts, and other coding agents, see the [installation guide](docs/skills-installation-guide.md).
 
 ## Adding a new skill
 
-1. Create `.github/skills/<skill-name>/`.
-2. Add a `SKILL.md` with valid YAML frontmatter (`name`, `description`).
-3. Place any executable code under `scripts/` and document the exact invocation in `SKILL.md`.
-4. List prerequisites (libraries, tools) and how to install them.
-5. Keep the skill self-contained, single-purpose, and idempotent where possible.
+### Assisted authoring with `create-skill` (recommended)
 
-See [AGENTS.md](AGENTS.md) for the full set of conventions.
+Use the external `create-skill` skill with your coding agent. Reuse an installation already available to the agent; if it is missing, obtain approval before installing it on demand. For GitHub Copilot:
+
+```sh
+npx skills add jongio/skills --skill create-skill -g --agent github-copilot
+```
+
+For other agent identifiers, see the [installation guide](docs/skills-installation-guide.md#install-with-the-skills-cli). Then ask your agent to use `create-skill`, for example:
+
+```text
+Use create-skill to create a skill named <skill-name> for <task>.
+Use this repository's skills/ layout and preserve its existing custom content.
+```
+
+Let the skill collect missing requirements and produce a dry-run preview. Review the proposed files, target paths, prerequisites, and registration changes before approving the exact plan. Keep the helper external: do not add a bundled `create-skill` installation, repository-management framework, or authoring step to CI.
+
+### Manual authoring (fallback)
+
+If the helper is unavailable or you prefer to author the skill directly:
+
+1. Create `skills/<skill-name>/`.
+2. Add a `SKILL.md` with valid YAML frontmatter (`name`, `description`).
+3. Add `plugin.json` with the same skill name, a version matching its marketplace entry, and `"skills": "./"`.
+4. Place any executable code under the skill's `scripts/` directory and document the exact invocation in `SKILL.md`.
+5. List prerequisites (libraries, tools) and how to install them.
+6. Keep the skill self-contained, single-purpose, and idempotent where possible.
+
+With either method, follow the [skill-change checklist](docs/repository-maintenance.md#skill-change-checklist) to keep the README, marketplace entries, plugin metadata, and any applicable dependency configuration consistent. See [AGENTS.md](AGENTS.md) for authoring conventions.
+
+## Repository maintenance
+
+See [repository maintenance](docs/repository-maintenance.md) for the skill-change checklist, dependency-free local repository tests, optional static skill linting, and CI behavior.
+
+This repository contains the authored skills and their distribution manifests, not a bundled repository generator or `create-skill` installation. GitHub Actions installs the pinned validation tools into its temporary runner directory. GitHub Pages is not configured.
 
 ## Contributing
 
