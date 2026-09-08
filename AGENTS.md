@@ -13,6 +13,10 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 
 ```text
 .
+├── AGENTS.md             # Guidance for AI coding agents working in this repository
+├── scripts/              # Helper scripts (e.g. sync skills to .claude)
+│   ├── sync-skills.sh
+│   └── sync-skills.ps1
 └── .github/
     └── skills/
         └── <skill-name>/
@@ -24,6 +28,7 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 - `<skill-name>` is lowercase, hyphen-separated (kebab-case), e.g. `pptx-denote`.
 - Every skill directory **must** contain a `SKILL.md`.
 - Supporting code goes in a `scripts/` subdirectory inside the skill.
+- Skills may include additional subdirectories for supporting resources, such as reference documents, templates, or rules, as documented in their `SKILL.md`.
 
 ## SKILL.md conventions
 
