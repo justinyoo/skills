@@ -1,6 +1,6 @@
 ---
 name: create-prd
-description: A skill that generates a product requirements document (PRD) by reading user provided context and performing interviews to fill the gap.
+description: A skill that generates or updates a product requirements document (PRD) by reading user provided context and performing interviews to fill the gap.
 ---
 
 # Create a product requirements document
