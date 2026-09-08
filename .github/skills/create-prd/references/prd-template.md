@@ -4,20 +4,24 @@ Use the outline below as a starting point, not a form to fill mechanically. Repl
 
 Keep the core information covered even when combining headings. Add conditional modules from the interview guide only where relevant. A small feature may need only a few paragraphs and a short requirements list.
 
+## Core outline
+
 ```markdown
 # [Product or feature] - Product requirements document
 
-| Field                     | Value                                                                                |
-| ------------------------- | ------------------------------------------------------------------------------------ |
-| Version                   | [Document version, distinct from the product release; confirmed or proposed]         |
-| Status                    | Draft / Review-ready / Implementation-ready                                          |
-| Owner                     | [Known owner, or unknown]                                                            |
-| Collaborators / reviewers | [Known participants, or unknown]                                                     |
-| Last updated              | [Actual update date]                                                                 |
-| Sign-off date             | [Actual sign-off date for this version with explicit approval, or pending / unknown] |
-| Intended audience         | [Who will use this PRD and for what decision]                                        |
-| Release scope             | [Named release or scope, if known]                                                   |
-| Target release            | [Confirmed constraint, proposed date, or unknown; not an invented commitment]        |
+## Document control
+
+| Field | Value |
+| ----- | ----- |
+| Version | [Document version, distinct from the product release; confirmed or proposed] |
+| Status | Draft / Review-ready / Implementation-ready |
+| Owner | [Known owner, or unknown] |
+| Reviewers | [Known collaborators/reviewers, or unknown] |
+| Last updated | [Actual update date] |
+| Sign-off | [Actual sign-off date for this version with explicit approval, or pending / unknown] |
+| Intended audience | [Who will use this PRD and for what decision] |
+| Release scope | [Named release or scope, if known] |
+| Target release | [Confirmed constraint, proposed date, or unknown; not an invented commitment] |
 
 ## 1. Overview
 
@@ -41,9 +45,9 @@ Keep the core information covered even when combining headings. Add conditional 
 
 ## 4. Goals and success measures
 
-| Goal ID | Desired outcome | Metric and measurement method                | Baseline           | Target                            | Evaluation window  |
-| ------- | --------------- | -------------------------------------------- | ------------------ | --------------------------------- | ------------------ |
-| G-001   | [Outcome]       | [Observable measure and how it is collected] | [Known or unknown] | [Confirmed, proposed, or unknown] | [Known or unknown] |
+| Goal ID | Desired outcome | Metric and measurement method | Baseline | Target | Evaluation window |
+| ------- | --------------- | ----------------------------- | -------- | ------ | ----------------- |
+| G-001 | [Outcome] | [Observable measure and how it is collected] | [Known or unknown] | [Confirmed, proposed, or unknown] | [Known or unknown] |
 
 [Include guardrail metrics when relevant. Metrics evaluate product impact, not merely whether a feature was implemented. Identify who evaluates them if known.]
 
@@ -84,8 +88,8 @@ Keep the core information covered even when combining headings. Add conditional 
 
 ## 7. Quality requirements and constraints
 
-| ID      | Area                    | Requirement or constraint             | Acceptance measure                           | State / source                               |
-| ------- | ----------------------- | ------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| ID | Area | Requirement or constraint | Acceptance measure | State / source |
+| --- | ---- | ------------------------- | ------------------ | -------------- |
 | NFR-001 | [Relevant quality area] | [Specific required behavior or bound] | [Observable measure under stated conditions] | [Confirmed / proposed / unknown, with basis] |
 
 [Consider performance, reliability, accessibility, security, privacy, compatibility, and compliance proportionately. Record why consequential areas are not applicable. Avoid unqualified terms such as "fast" or "secure".]
@@ -106,29 +110,40 @@ Keep the core information covered even when combining headings. Add conditional 
 
 ### Assumptions
 
-| ID    | Assumption                      | Impact if wrong | Validation or next action | Owner                    |
-| ----- | ------------------------------- | --------------- | ------------------------- | ------------------------ |
-| A-001 | [Explicitly unvalidated belief] | [Impact]        | [Known action or unknown] | [Known owner or unknown] |
+| ID | Assumption | Impact if wrong | Validation or next action | Owner |
+| --- | ---------- | --------------- | ------------------------- | ----- |
+| A-001 | [Explicitly unvalidated belief] | [Impact] | [Known action or unknown] | [Known owner or unknown] |
 
 ### Risks and dependencies
 
-| ID     | Risk or dependency   | Impact   | Mitigation or next action   | Owner                    |
-| ------ | -------------------- | -------- | --------------------------- | ------------------------ |
+| ID | Risk or dependency | Impact | Mitigation or next action | Owner |
+| --- | ------------------ | ------ | ------------------------- | ----- |
 | RD-001 | [Risk or dependency] | [Impact] | [Agreed or proposed action] | [Known owner or unknown] |
 
 ### Open questions
 
-| ID    | Question or conflict  | Affected goal / requirement | Blocks implementation?  | Owner / next action                  |
-| ----- | --------------------- | --------------------------- | ----------------------- | ------------------------------------ |
-| Q-001 | [Unresolved decision] | [Related IDs or area]       | [Yes / no, with reason] | [Known owner and action, or unknown] |
+| ID | Question or conflict | Affected goal / requirement | Blocks implementation? | Owner / next action |
+| --- | -------------------- | --------------------------- | ---------------------- | ------------------- |
+| Q-001 | [Unresolved decision] | [Related IDs or area] | [Yes / no, with reason] | [Known owner and action, or unknown] |
 
 ### Decisions and material changes
 
-| Date          | Decision or change                               | Basis / confirmed by              | Affected scope or IDs |
-| ------------- | ------------------------------------------------ | --------------------------------- | --------------------- |
-| [Actual date] | [Decision, or change from the previous baseline] | [Source or explicit confirmation] | [Affected areas]      |
+| Date | Decision or change | Basis / confirmed by | Affected scope or IDs |
+| ---- | ------------------ | -------------------- | --------------------- |
+| [Actual date] | [Decision, or change from the previous baseline] | [Source or explicit confirmation] | [Affected areas] |
 
-### Supporting references
+### Readiness assessment
 
-[List the source documents and linked design, technical, research, or delivery artifacts actually used. Do not invent links or imply inaccessible sources were read.]
+- Supported status: [Draft / Review-ready / Implementation-ready, with basis from the checklist.]
+- Material blockers: [Explicit list, or none only when supported.]
+- Confirmation / approval: [Known confirmation and its scope; no inferred sign-off.]
+- Review limitations: [Missing sources or unresolved findings, if any.]
+
+### References and glossary
+
+[List the source documents and linked design, technical, research, or delivery artifacts actually used. Define terms only where helpful; do not invent links or imply inaccessible sources were read.]
 ```
+
+## Conditional modules
+
+Use the [interview guide's coverage screen](interview-guide.md#comprehensive-coverage-screen) to select applicable product areas. Expand the relevant requirements, journeys, quality constraints, or release sections rather than creating a separate chapter for every module. Keep detailed technical elaboration and solution design in companion documents while retaining actual product constraints in the PRD.

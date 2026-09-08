@@ -33,6 +33,7 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 | Skill                                                    | Description |
 | -------------------------------------------------------- | ----------- |
 | [`create-prd`](.github/skills/create-prd/SKILL.md)       | Generate or update a product requirements document (PRD) from user-provided context and interviews to fill missing details. |
+| [`create-tdd`](.github/skills/create-tdd/SKILL.md)       | Generate or update a technical design document (TDD) from a required PRD and TRD through design proposals and adaptive interviews, with references to existing ADRs. |
 | [`create-trd`](.github/skills/create-trd/SKILL.md)       | Generate or update a technical requirements document (TRD) as a PRD companion through adaptive interviews, asking to create a PRD first when missing. |
 | [`localizations`](.github/skills/localizations/SKILL.md) | Localize content into the supported target locales using locale-specific rules. |
 | [`pptx-denote`](.github/skills/pptx-denote/SKILL.md)     | Remove all slide notes from a PowerPoint presentation using the `python-pptx` library. |

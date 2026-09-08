@@ -1,14 +1,12 @@
-# Adaptive interview guide
+# Adaptive PRD interview guide
 
 This is a question bank, not a script. Use supplied context first, skip answered questions, and ask one focused question at a time. An answer may resolve several gaps; update all affected areas instead of asking the remaining questions by rote.
 
-## Choosing the next question
+## Context and prerequisites
 
-Prefer questions whose answers could change the product direction, release boundary, important user behavior, risk, or acceptance criteria. Resolve a contradiction before refining details that depend on it. Explain why a question matters when that would help the user answer.
+Start from the supplied idea or existing context; no upstream requirements document is required. Establish the product foundation before drafting.
 
-Use plain language rather than asking the user to supply product-management terminology. Offer choices when the alternatives are meaningful, but do not steer the user into confirming an unsupported assumption.
-
-## Foundation questions
+### Foundation questions
 
 Choose the first unanswered, consequential question; do not ask this whole list.
 
@@ -25,6 +23,35 @@ Choose the first unanswered, consequential question; do not ask this whole list.
 | Non-goal          | What outcome are you deliberately not trying to achieve?           |
 | Release exclusion | Which capability should explicitly stay outside this release?      |
 | Constraint        | Is there a fixed constraint that could change what we can deliver? |
+
+## Choosing the next question
+
+Prefer questions whose answers could change the product direction, release boundary, important user behavior, risk, or acceptance criteria. Resolve a contradiction before refining details that depend on it. Explain why a question matters when that would help the user answer.
+
+Use plain language rather than asking the user to supply product-management terminology. Offer choices when the alternatives are meaningful, but do not steer the user into confirming an unsupported assumption.
+
+## Comprehensive coverage screen
+
+Screen every module against known context, then investigate only applicable or consequentially uncertain areas. A trigger identifies relevance, not permission to assume the answer. Record a reason for consequential exclusions.
+
+| Module                             | When to explore                                                             | Example next question                                                   |
+| ---------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| UX and accessibility               | Human interaction, including user-facing outputs from APIs or automation    | Does the primary journey need to work without a mouse?                  |
+| Identity and permissions           | Accounts, multiple roles, shared resources, restricted actions              | Who should be allowed to view another user's information?               |
+| Data and privacy                   | Personal, sensitive, uploaded, generated, or retained information           | What information must the product retain after the task ends?           |
+| Data lifecycle                     | Stored information, exports, deletion requests, retention obligations       | What should happen to stored information when an account is deleted?    |
+| Security and abuse                 | Untrusted input, public access, valuable actions, sensitive information     | What misuse would cause the greatest harm to users?                     |
+| Performance and scale              | Time-sensitive interactions, large volumes, resource limits                 | How long can a user reasonably wait for the primary action to complete? |
+| Reliability and recovery           | State changes, external dependencies, availability needs                    | What should users experience if the external service is unavailable?    |
+| Integrations                       | External systems, APIs, imports, exports, synchronization                   | What should happen when the two systems disagree about a record?        |
+| Migration and compatibility        | Replacing existing behavior, existing users or data, supported environments | Which existing user behavior must continue working unchanged?           |
+| Payments and entitlements          | Charges, subscriptions, quotas tied to payment                              | What access should a user retain after a payment fails?                 |
+| Localization and regional behavior | Multiple languages, regions, time zones, or formats                         | Which languages must the first release support?                         |
+| Compliance and policy              | Regulated domains, organizational policy, contractual obligations           | Which known policy or regulatory obligation constrains this release?    |
+| AI behavior and evaluation         | Probabilistic output, generated content, automated decisions or actions     | What should happen when the system cannot produce a reliable result?    |
+| Operations and rollout             | User exposure, feature enablement, monitoring, support ownership            | What signal should cause a rollout to pause?                            |
+
+For sensitive or high-risk products, also clarify relevant access boundaries, human review, failure safeguards, and the evidence needed to assess behavior. For AI products, clarify evaluation examples, unacceptable outputs, and action authorization where applicable. Do not claim compliance or safety certification from an interview; record review obligations and unresolved expert decisions.
 
 ## Outcomes and measurement
 
@@ -54,30 +81,7 @@ For each essential journey, clarify only the missing behavior:
 
 Turn the answers into requirements with observable acceptance criteria. Ask about important exceptions rather than enumerating every imaginable edge case. Avoid choosing databases, frameworks, or algorithms unless an actual constraint makes the choice relevant to the product requirement.
 
-## Conditional modules
-
-Screen every module against known context, then investigate only applicable or consequentially uncertain areas. A trigger identifies relevance, not permission to assume the answer. Record a reason for consequential exclusions.
-
-| Module                             | When to explore                                                             | Example next question                                                   |
-| ---------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| UX and accessibility               | Human interaction, including user-facing outputs from APIs or automation    | Does the primary journey need to work without a mouse?                  |
-| Identity and permissions           | Accounts, multiple roles, shared resources, restricted actions              | Who should be allowed to view another user's information?               |
-| Data and privacy                   | Personal, sensitive, uploaded, generated, or retained information           | What information must the product retain after the task ends?           |
-| Data lifecycle                     | Stored information, exports, deletion requests, retention obligations       | What should happen to stored information when an account is deleted?    |
-| Security and abuse                 | Untrusted input, public access, valuable actions, sensitive information     | What misuse would cause the greatest harm to users?                     |
-| Performance and scale              | Time-sensitive interactions, large volumes, resource limits                 | How long can a user reasonably wait for the primary action to complete? |
-| Reliability and recovery           | State changes, external dependencies, availability needs                    | What should users experience if the external service is unavailable?    |
-| Integrations                       | External systems, APIs, imports, exports, synchronization                   | What should happen when the two systems disagree about a record?        |
-| Migration and compatibility        | Replacing existing behavior, existing users or data, supported environments | Which existing user behavior must continue working unchanged?           |
-| Payments and entitlements          | Charges, subscriptions, quotas tied to payment                              | What access should a user retain after a payment fails?                 |
-| Localization and regional behavior | Multiple languages, regions, time zones, or formats                         | Which languages must the first release support?                         |
-| Compliance and policy              | Regulated domains, organizational policy, contractual obligations           | Which known policy or regulatory obligation constrains this release?    |
-| AI behavior and evaluation         | Probabilistic output, generated content, automated decisions or actions     | What should happen when the system cannot produce a reliable result?    |
-| Operations and rollout             | User exposure, feature enablement, monitoring, support ownership            | What signal should cause a rollout to pause?                            |
-
-For sensitive or high-risk products, also clarify relevant access boundaries, human review, failure safeguards, and the evidence needed to assess behavior. For AI products, clarify evaluation examples, unacceptable outputs, and action authorization where applicable. Do not claim compliance or safety certification from an interview; record review obligations and unresolved expert decisions.
-
-## Handling uncertainty and disagreement
+## Handling uncertainty and changes
 
 - If the answer is "I don't know", offer a concrete alternative, a clearly labeled proposal, or an explicit deferral. Do not ask the same question repeatedly.
 - If sources conflict, present the conflicting claims with their sources and ask which should govern the PRD.

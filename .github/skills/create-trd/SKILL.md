@@ -35,7 +35,7 @@ Invoke the skill with a prompt such as:
 
 ### Supporting references
 
-Read the [TRD template](references/trd-template.md) before drafting and the [readiness checklist](references/readiness-checklist.md) before assigning a status. Use the [interview guide](references/interview-guide.md) to screen coverage and choose focused questions.
+Read the [TRD template](references/trd-template.md) before drafting and the [readiness checklist](references/readiness-checklist.md) before assigning a document status. Use the [interview guide](references/interview-guide.md) to screen coverage and choose focused questions.
 
 ## Workflow
 
@@ -97,7 +97,7 @@ If an answer introduces or changes product intent, scope, essential user-visible
 
 An answer may close several gaps. Update all affected requirements, constraints, traceability, and risks instead of repeating answered questions.
 
-### 5. Draft and refine the companion document
+### 5. Draft and refine the document
 
 Once the PRD prerequisite and product foundation are satisfied, create a useful initial draft using the template. Technical unknowns need not delay drafting; label them and continue the interview. Update the living document as material answers arrive.
 
@@ -111,6 +111,8 @@ Each requirement needs a verification method and the relevant conditions that ma
 
 Maintain traceability in both directions: every in-scope PRD requirement has technical coverage, an explicit gap, or a justified statement that no additional technical requirement is needed; every TRD requirement has a PRD or other authoritative source and a verification reference. Do not create a technical duplicate merely to populate a matrix.
 
+#### Document boundaries
+
 Keep document boundaries explicit:
 
 | Document                            | Owns                                                                                                        | TRD treatment |
@@ -121,6 +123,8 @@ Keep document boundaries explicit:
 | Delivery plan / test plan / runbook | Tasks, estimates, sprint schedules, detailed test procedures and results, operating instructions            | Link these artifacts; retain only genuine constraints, verification methods, and required operational outcomes. |
 
 Logical data models, system context diagrams, and interface contracts can clarify obligations without prescribing an internal implementation. Do not create diagrams or extra artifacts just to fill a template. Do not include speculative features, unsourced compliance claims, raw transcripts, secrets, or technology preferences disguised as mandates.
+
+#### Updating an existing document
 
 For an existing TRD, read the latest file before editing, preserve stable IDs and unrelated content, and reconcile against the current PRD. Record material changes and superseded requirements without reusing retired IDs. Never silently drop a requirement whose PRD source was removed or changed; record the impact and obtain a scope decision when needed.
 

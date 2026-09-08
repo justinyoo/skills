@@ -2,7 +2,9 @@
 
 This is a coverage screen and question bank, not a fixed questionnaire. Read the PRD and supplied technical context first. Ask one focused question at a time, skip answered questions, and update all affected areas after each material answer.
 
-## PRD gate and document boundaries
+## Context and prerequisites
+
+### PRD gate and document boundaries
 
 | Situation                                                   | Next action                                                                                                                  |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -20,21 +22,7 @@ Example opening when no PRD exists:
 
 With a question tool, offer separate choices for generating the PRD with `create-prd`, supplying an existing PRD, or pausing. Do not silently invoke PRD creation.
 
-## Choosing the next question
-
-Prioritize the decision with the greatest effect on scope, required behavior, safety, interfaces, data integrity, or acceptance. Resolve contradictions before refining dependent details. Offer choices with tradeoffs where useful, without treating the recommendation as confirmed.
-
-Distinguish these question types:
-
-| Type                  | Example                                                                                    | Where the answer belongs                                              |
-| --------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| Product decision      | Must users be able to undo a completed transaction?                                        | PRD first, if not already established                                 |
-| Technical requirement | During a retry, how must the system recognize that the same transaction already completed? | TRD, consistent with the product behavior                             |
-| Implementation choice | Which internal table stores the deduplication key?                                         | Usually TDD/specification; only a TRD constraint if actually mandated |
-
-Do not open with "Which database/framework/cloud should we use?" unless the context makes it a real constraint. Prefer asking which existing systems or obligations must remain compatible.
-
-## Foundation after the PRD gate
+### Foundation after the PRD gate
 
 Select only consequential unanswered questions:
 
@@ -48,6 +36,20 @@ Select only consequential unanswered questions:
 | Source conflict    | The PRD requires deletion, but the supplied policy requires retention; which authority should resolve this conflict? |
 
 If a version, owner, or decision is unknown, label it rather than repeatedly asking. Escalate only when the uncertainty affects the baseline or intended readiness.
+
+## Choosing the next question
+
+Prioritize the decision with the greatest effect on scope, required behavior, safety, interfaces, data integrity, or acceptance. Resolve contradictions before refining dependent details. Offer choices with tradeoffs where useful, without treating the recommendation as confirmed.
+
+Distinguish these question types:
+
+| Type                  | Example                                                                                    | Where the answer belongs                                              |
+| --------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| Product decision      | Must users be able to undo a completed transaction?                                        | PRD first, if not already established                                 |
+| Technical requirement | During a retry, how must the system recognize that the same transaction already completed? | TRD, consistent with the product behavior                             |
+| Implementation choice | Which internal table stores the deduplication key?                                         | Usually TDD/specification; only a TRD constraint if actually mandated |
+
+Do not open with "Which database/framework/cloud should we use?" unless the context makes it a real constraint. Prefer asking which existing systems or obligations must remain compatible.
 
 ## Comprehensive coverage screen
 
@@ -92,13 +94,15 @@ Not every criterion requires every measurement field. An inspectable encryption 
 
 If a target is unknown, offer a labeled proposal with a rationale or a next action to gather evidence. Do not fabricate benchmarks. A proposed number does not become confirmed merely because it appears in a draft.
 
-## Handling uncertainty, changes, and checkpoints
+## Handling uncertainty and changes
 
 - For "I don't know", propose meaningful alternatives, an evidence-gathering action, or explicit deferral. Do not repeat the same question without new information.
 - For conflicting sources, show the conflicting claims and their origins; ask which authority should resolve them. Do not silently prefer the newest-looking document.
 - For scope expansion or a weakened PRD criterion, identify the affected product reference and obtain a PRD decision first. A technical workaround cannot redefine product acceptance implicitly.
 - For technical decisions within the PRD scope, update requirements, acceptance, traceability, constraints, and risks together. Preserve stable IDs and record material changes.
 - For deferred gaps, record the impact, implementation/release blocking status, and known owner or next action. Unknown impact is not automatically nonblocking.
+
+## Checkpoints and stopping
 
 Use brief checkpoints after establishing the baseline, after a material boundary or contract decision, and before finalizing. Ask for confirmation of one consequential interpretation, not blanket sign-off on unrelated unresolved decisions. Do not redisplay the full document after each answer.
 

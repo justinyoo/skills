@@ -2,7 +2,9 @@
 
 Assess the actual document against its PRD baseline, supplied technical sources, and latest user decisions. Readiness depends on content and intended use, not the number of sections or questions answered.
 
-## Prerequisite and companion checks
+## Content checks
+
+### Prerequisite and companion checks
 
 - A readable PRD establishes the product foundation for the documented scope. A missing PRD led to a request to generate one first, not a standalone TRD.
 - The PRD source, revision/version or explicit unknown, stated status, scope, and consultation date are recorded. Partial or inaccessible context is disclosed.
@@ -10,7 +12,7 @@ Assess the actual document against its PRD baseline, supplied technical sources,
 - Product changes discovered in the interview were resolved in the PRD with authorization, or remain explicit blockers. No TRD requirement silently expands scope or weakens PRD acceptance.
 - PRD and TRD changes are reconciled; an older TRD does not retain its readiness status automatically after a material baseline change.
 
-## Coverage and requirement checks
+### Coverage and requirement checks
 
 - The technical boundary, actors, affected systems, responsibilities, and release exclusions are understandable and consistent with the PRD.
 - Actual constraints and dependencies have sources and impact. Existing code, draft architecture, and preferences are not misrepresented as mandates.
@@ -24,6 +26,9 @@ Assess the actual document against its PRD baseline, supplied technical sources,
 - Every TRD requirement traces to the PRD or another authoritative obligation relevant to its scope, and to acceptance/verification expectations.
 - Product metrics, technical acceptance, release gates, and document readiness are distinct. Planned evidence is not described as executed or passed.
 - Detailed implementation design, alternatives, physical schemas, test scripts/results, task schedules, and runbooks are linked rather than copied, except for actual binding constraints or essential contract details.
+
+### Safety, updates, and document integrity
+
 - Assumptions, proposals, risks, conflicts, and unknowns are explicit, with affected references, impact, implementation/release blocking status, and known owner or next action.
 - There are no unsupported approvals, compliance claims, sensitive examples, invented links, unused example rows, or instructional placeholders. A meaningful unknown is not a placeholder.
 - Existing requirement IDs and unrelated content are preserved, and material baseline changes or superseded requirements are recorded.
@@ -45,7 +50,7 @@ Distinguish implementation blockers from release gates that are expected to be s
 ## Final pass
 
 1. Read the latest PRD and TRD, and compare them with supplied sources and confirmed user decisions. Disclose any inaccessible context that limits the comparison.
-2. Perform the reviewer pass in the skill workflow. Identify concrete findings with affected references, evidence, impact, blocking status, and a correction or focused question.
+2. Perform the [reviewer pass](../SKILL.md#6-review-and-reconcile) in the skill workflow. Identify concrete findings with affected references, evidence, impact, blocking status, and a correction or focused question.
 3. Correct supported drafting errors. Return unresolved technical decisions to the interview and product decisions to the PRD handoff. Recheck affected requirements, traceability, risks, and status.
 4. If evidence or decisions remain unavailable, record the gap instead of inventing a resolution or repeating review without new information. Honor an explicit pause or stop without further questions.
 5. Assign the supported status and make material blockers prominent. Reviewer feedback and a clean review do not provide approval.

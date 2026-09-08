@@ -9,17 +9,19 @@ Keep core coverage even when merging headings. Expand the applicable areas from 
 ```markdown
 # [Product or feature] - Technical requirements document
 
-| Field             | Value                                                                                       |
-| ----------------- | ------------------------------------------------------------------------------------------- |
-| Version           | [Document version, confirmed or proposed; distinct from product release]                    |
-| Status            | Draft / Review-ready / Implementation-ready                                                 |
-| Owner             | [Known owner, or unknown]                                                                   |
-| Reviewers         | [Known participants, or unknown]                                                            |
-| Last updated      | [Actual update date]                                                                        |
-| Sign-off          | [Explicit approval for this version, or pending / unknown]                                  |
-| Intended audience | [Who uses this TRD and for which decision]                                                  |
-| PRD baseline      | [Source link or identifier, version/revision or unknown, stated status, and date consulted] |
-| Release scope     | [The PRD release or feature scope this TRD covers]                                          |
+## Document control
+
+| Field | Value |
+| ----- | ----- |
+| Version | [Document version, confirmed or proposed; distinct from product release] |
+| Status | Draft / Review-ready / Implementation-ready |
+| Owner | [Known owner, or unknown] |
+| Reviewers | [Known participants, or unknown] |
+| Last updated | [Actual update date] |
+| Sign-off | [Explicit approval for this version, or pending / unknown] |
+| Intended audience | [Who uses this TRD and for which decision] |
+| Release scope | [The PRD release or feature scope this TRD covers] |
+| PRD baseline | [Source link or identifier, version/revision or unknown, stated status, and date consulted] |
 
 ## 1. Purpose and PRD relationship
 
@@ -42,17 +44,17 @@ Keep core coverage even when merging headings. Expand the applicable areas from 
 
 ## 3. Constraints, dependencies, and coverage
 
-| ID     | Constraint or dependency                                              | State and source                             | Technical impact                      | Owner / next action |
-| ------ | --------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------- | ------------------- |
-| CD-001 | [Actual platform, policy, contract, resource, or delivery constraint] | [Confirmed / proposed / unknown, with basis] | [Affected obligations or feasibility] | [Known or unknown]  |
+| ID | Constraint or dependency | State and source | Technical impact | Owner / next action |
+| --- | ------------------------ | ---------------- | ---------------- | ------------------- |
+| CD-001 | [Actual platform, policy, contract, resource, or delivery constraint] | [Confirmed / proposed / unknown, with basis] | [Affected obligations or feasibility] | [Known or unknown] |
 
 [Reference applicable standards and their versions where known. Separate binding constraints from preferences. Put unvalidated assumptions in section 6.]
 
 ### Coverage disposition
 
-| Area            | Applicability                         | Basis / reason                                               | Requirement or gap references |
-| ----------------| ------------------------------------- | ------------------------------------------------------------ | ----------------------------- |
-| [Screened area] | Applicable / Not applicable / Unknown | [Evidence, exclusion rationale, or unresolved applicability] | [TRD IDs or open question]    |
+| Area | Applicability | Basis / reason | Requirement or gap references |
+| ---- | ------------- | -------------- | ----------------------------- |
+| [Screened area] | Applicable / Not applicable / Unknown | [Evidence, exclusion rationale, or unresolved applicability] | [TRD IDs or open question] |
 
 [Screen all areas in the interview guide. Keep this compact; group related areas only when their applicability and rationale remain clear. An unknown is not an exclusion and need not create an empty chapter.]
 
@@ -80,16 +82,16 @@ Keep core coverage even when merging headings. Expand the applicable areas from 
 
 ### Product-to-technical coverage
 
-| PRD ID or section at baseline | TRD requirement IDs        | Coverage disposition                                                                  |
-| ----------------------------- | -------------------------- | ------------------------------------------------------------------------------------- |
-| [In-scope PRD reference]      | [IDs, or none with reason] | [Covered, explicit gap, or no additional technical requirement needed with rationale] |
+| PRD ID or section at baseline | TRD requirement IDs | Coverage disposition |
+| ----------------------------- | ------------------- | -------------------- |
+| [In-scope PRD reference] | [IDs, or none with reason] | [Covered, explicit gap, or no additional technical requirement needed with rationale] |
 
 [Cover each in-scope product requirement, including relevant PRD quality requirements. "No additional technical requirement needed" retains the original PRD obligation and acceptance criteria; it does not waive them.]
 
 ### Technical-to-evidence mapping
 
-| TRD ID   | Source / scope rationale                              | Verification reference or method                         | Conditions and expected evidence                    | Evidence state                                        |
-| -------- | ----------------------------------------------------- | -------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------- |
+| TRD ID | Source / scope rationale | Verification reference or method | Conditions and expected evidence | Evidence state |
+| ------ | ------------------------ | -------------------------------- | -------------------------------- | -------------- |
 | [TRD ID] | [PRD reference or policy/contract/etc. and relevance] | [Acceptance/verification field above or linked artifact] | [Required conditions and evidence, or explicit gap] | [Planned / available with actual reference / unknown] |
 
 [Reference authoritative acceptance criteria rather than maintaining conflicting copies. Do not invent test results, evidence links, or executed verification.]
@@ -104,17 +106,17 @@ Keep core coverage even when merging headings. Expand the applicable areas from 
 
 ### Assumptions, risks, and questions
 
-| ID    | Type and issue                            | State / source                               | Affected PRD/TRD references | Impact                               | Blocks implementation or release?                        | Owner / next action                         |
-| ----- | ----------------------------------------- | -------------------------------------------- | --------------------------- | ------------------------------------ | -------------------------------------------------------- | ------------------------------ |
-| Q-001 | [Assumption, risk, conflict, or question] | [Confirmed / proposed / unknown, with basis] | [IDs or sections]           | [Consequence if unresolved or wrong] | [Yes / no / unknown, with reason for each relevant gate] | [Known or unknown; product gaps route to the PRD] |
+| ID | Type and issue | State / source | Affected PRD/TRD references | Impact | Blocks implementation or release? | Owner / next action |
+| --- | -------------- | -------------- | --------------------------- | ------ | --------------------------------- | ------------------- |
+| Q-001 | [Assumption, risk, conflict, or question] | [Confirmed / proposed / unknown, with basis] | [IDs or sections] | [Consequence if unresolved or wrong] | [Yes / no / unknown, with reason for each relevant gate] | [Known or unknown; product gaps route to the PRD] |
 
 [Make blockers prominent. Unknown owners, dates, or impact remain unknown rather than invented or automatically treated as harmless. Record agreed deferrals and consequential exclusions.]
 
 ### Decisions and material changes
 
-| Date          | Decision or change                                    | Basis / confirmed by              | Affected PRD baseline and TRD IDs |
-| ------------- | ----------------------------------------------------- | --------------------------------- | --------------------------------- |
-| [Actual date] | [Decision, changed source, or superseded requirement] | [Source or explicit confirmation] | [Affected references]             |
+| Date | Decision or change | Basis / confirmed by | Affected PRD baseline and TRD IDs |
+| ---- | ------------------ | -------------------- | --------------------------------- |
+| [Actual date] | [Decision, changed source, or superseded requirement] | [Source or explicit confirmation] | [Affected references] |
 
 [Preserve a concise change history, not the raw interview. Track PRD changes and reconcile dependent requirements, evidence expectations, and readiness.]
 
