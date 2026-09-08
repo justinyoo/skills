@@ -26,12 +26,14 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 - `<skill-name>` is lowercase, hyphen-separated (kebab-case), e.g. `pptx-denote`.
 - Every skill directory **must** contain a `SKILL.md`.
 - Supporting code goes in a `scripts/` subdirectory inside the skill.
+- Skills may include additional subdirectories for supporting resources, such as reference documents, templates, or rules, as documented in their `SKILL.md`.
 
 ## Available skills
 
 | Skill | Description |
 | ----- | ----------- |
 | [`create-prd`](.github/skills/create-prd/SKILL.md) | Generate a product requirements document (PRD) from user-provided context and interviews to fill missing details. |
+| [`localizations`](.github/skills/localizations/SKILL.md) | Localize content into the supported target locales using locale-specific rules. |
 | [`pptx-denote`](.github/skills/pptx-denote/SKILL.md) | Remove all slide notes from a PowerPoint presentation using the `python-pptx` library. |
 
 ## Using a skill
@@ -47,13 +49,9 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 
 ## Using with Claude Code
 
-Skills in this repository live under `.github/skills/`, which is the location used by
-GitHub Copilot and VS Code. [Claude Code](https://docs.anthropic.com/docs/claude-code)
-discovers skills from `.claude/skills/` instead, so the skills need to be copied there.
+Skills in this repository live under `.github/skills/`, which is the location used by GitHub Copilot and VS Code. [Claude Code](https://docs.anthropic.com/docs/claude-code) discovers skills from `.claude/skills/` instead, so the skills need to be copied there.
 
-The `SKILL.md` format is the same for both tools, so a copy is all that's required. Use the
-bundled sync scripts to copy every skill into `.claude/skills/` (skills that already exist are
-left untouched):
+The `SKILL.md` format is the same for both tools, so a copy is all that's required. Use the bundled sync scripts to copy every skill into `.claude/skills/` (skills that already exist are left untouched):
 
 ```bash
 # zsh/bash
@@ -65,9 +63,7 @@ left untouched):
 ./scripts/sync-skills.ps1
 ```
 
-After syncing, Claude Code loads each skill's `name` and `description`, then reads the full
-`SKILL.md` when a task matches. The `.claude/` directory is ignored by Git, so the synced
-copies stay local to your machine.
+After syncing, Claude Code loads each skill's `name` and `description`, then reads the full `SKILL.md` when a task matches. The `.claude/` directory is ignored by Git, so the synced copies stay local to your machine.
 
 ## Adding a new skill
 
@@ -81,5 +77,4 @@ See [AGENTS.md](AGENTS.md) for the full set of conventions.
 
 ## Contributing
 
-Contributions of new skills are welcome. Follow the conventions in [AGENTS.md](AGENTS.md) and
-keep each skill focused on a single, well-defined task.
+Contributions of new skills are welcome. Follow the conventions in [AGENTS.md](AGENTS.md) and keep each skill focused on a single, well-defined task.
