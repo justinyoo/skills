@@ -1,0 +1,16 @@
+{
+  "name": "justinyoo-skills",
+  "owner": {
+    "name": "Justin Yoo"
+  },
+  "metadata": {
+    "description": "A curated collection of skills for AI coding agents."
+  },
+  "plugins": [
+    {
+      "name": "justinyoo-skills",
+      "source": "./",
+      "description": "A curated collection of skills for AI coding agents."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "justinyoo-skills",
+  "interface": {
+    "displayName": "Skills for AI Coding Agents"
+  },
+  "plugins": [
+    {
+      "name": "justinyoo-skills",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

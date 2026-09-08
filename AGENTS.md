@@ -14,17 +14,14 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 ```text
 .
 ├── AGENTS.md             # Guidance for AI coding agents working in this repository
-├── scripts/              # Helper scripts (e.g. sync skills to .claude)
-│   ├── sync-skills.sh
-│   └── sync-skills.ps1
-└── .github/
-    └── skills/
-        └── <skill-name>/
-            ├── SKILL.md      # Required: skill description and usage instructions
-            └── scripts/      # Optional: supporting scripts the skill runs
+└── skills/
+    └── <skill-name>/
+        ├── SKILL.md      # Required: skill description and usage instructions
+        └── scripts/      # Optional: supporting scripts the skill runs
 ```
 
-- Each skill lives in its own directory under `.github/skills/<skill-name>/`.
+- `skills/` is the source of truth. Use the standard installer as described in README.
+- Each skill lives in its own directory under `skills/<skill-name>/`.
 - `<skill-name>` is lowercase, hyphen-separated (kebab-case), e.g. `pptx-denote`.
 - Every skill directory **must** contain a `SKILL.md`.
 - Supporting code goes in a `scripts/` subdirectory inside the skill.
@@ -58,7 +55,7 @@ Frontmatter rules:
 
 ## Adding a new skill
 
-1. Create `.github/skills/<skill-name>/`.
+1. Create `skills/<skill-name>/`.
 2. Add a `SKILL.md` with valid frontmatter (`name`, `description`) following the convention above.
 3. Place any executable code under `scripts/` and document the exact invocation in `SKILL.md`.
 4. List prerequisites (libraries, tools) and how to install them.
@@ -82,3 +79,11 @@ Frontmatter rules:
 - Read the relevant `SKILL.md` before running any script in a skill.
 - Run scripts from the skill directory using the documented command.
 - Do not invent file paths or commands; rely on what each `SKILL.md` specifies.
+
+## Repository maintenance
+
+Maintain `README.md`, `marketplace.json`, and the skill keywords in `plugin.json` when adding, renaming, or removing a skill. The other host manifests point to the complete collection and canonical `skills/` directory.
+
+Authoring helpers such as `create-skill` are external tools. Use an available installation or obtain approval to install one on demand; do not vendor the helper into this collection. Preserve repository-specific content when following an external generator's instructions.
+
+CI installs the pinned Vally dependencies on its runner. Only dependency manifests, lockfiles, repository-specific checks, and link policy are committed. See `docs/repository-maintenance.md` for local equivalents. There is no managed-state directory, local repository generator, or GitHub Pages deployment.
