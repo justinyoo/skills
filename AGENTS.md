@@ -4,8 +4,7 @@ Guidance for AI coding agents working in this repository.
 
 ## What this repository is
 
-This repository is a curated collection of **skills** for AI coding agents. A skill packages
-domain-specific knowledge and, optionally, runnable scripts that an agent can read and execute to perform a well-defined task (for example, removing speaker notes from a PowerPoint file).
+This repository is a curated collection of **skills** for AI coding agents. A skill packages domain-specific knowledge and, optionally, runnable scripts that an agent can read and execute to perform a well-defined task (for example, removing speaker notes from a PowerPoint file).
 
 Agents discover a skill by reading its `SKILL.md`, then follow the instructions and invoke the bundled scripts as needed.
 
@@ -14,16 +13,20 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 ```text
 .
 ├── AGENTS.md             # Guidance for AI coding agents working in this repository
+├── docs/                 # Installation and maintenance guides
 └── skills/
     └── <skill-name>/
         ├── SKILL.md      # Required: skill description and usage instructions
+        ├── plugin.json   # Required: individual Copilot plugin metadata
+        ├── thumbnail.png # Optional: rendered thumbnail
+        ├── thumbnail.svg # Optional: editable thumbnail source
         └── scripts/      # Optional: supporting scripts the skill runs
 ```
 
-- `skills/` is the source of truth. Use the standard installer as described in README.
+- `skills/` is the source of truth; make authored changes there, not in installation copies. Use one of the methods in the [Skills installation guide](docs/skills-installation-guide.md) to consume the skills.
 - Each skill lives in its own directory under `skills/<skill-name>/`.
 - `<skill-name>` is lowercase, hyphen-separated (kebab-case), e.g. `pptx-denote`.
-- Every skill directory **must** contain a `SKILL.md`.
+- Every skill directory **must** contain `SKILL.md` and `plugin.json`. The skill frontmatter name and plugin name must match the directory.
 - Supporting code goes in a `scripts/` subdirectory inside the skill.
 - Skills may include additional subdirectories for supporting resources, such as reference documents, templates, or rules, as documented in their `SKILL.md`.
 
@@ -43,8 +46,7 @@ Short overview of the skill.
 
 ## How it works
 
-Explain the inputs, outputs, and behavior. Include the exact commands to run,
-any prerequisites (e.g. required packages), and sensible defaults.
+Explain the inputs, outputs, and behavior. Include the exact commands to run, any prerequisites (e.g. required packages), and sensible defaults.
 ```
 
 Frontmatter rules:
@@ -55,11 +57,17 @@ Frontmatter rules:
 
 ## Adding a new skill
 
+Prefer the external `create-skill` assisted workflow described in [README](README.md#adding-a-new-skill). Reuse an available installation, or obtain approval to install it on demand. Review its dry-run and approve only the intended files, paths, prerequisites, and registration changes. Do not vendor the helper or add authoring to CI.
+
+Manual authoring is the fallback. Both methods must satisfy these requirements:
+
 1. Create `skills/<skill-name>/`.
 2. Add a `SKILL.md` with valid frontmatter (`name`, `description`) following the convention above.
-3. Place any executable code under `scripts/` and document the exact invocation in `SKILL.md`.
-4. List prerequisites (libraries, tools) and how to install them.
-5. Keep the skill self-contained, single-purpose, and idempotent where possible.
+3. Add `plugin.json` with the same skill name, a version matching its marketplace entry, and `"skills": "./"` to expose the root `SKILL.md` as an individual Copilot plugin.
+4. Place any executable code under the skill's `scripts/` directory and document the exact invocation in `SKILL.md`.
+5. List prerequisites (libraries, tools) and how to install them.
+6. Keep the skill self-contained, single-purpose, and idempotent where possible.
+7. Complete the [skill-change checklist](docs/repository-maintenance.md#skill-change-checklist), whether the helper generated the files or they were written manually.
 
 ## Conventions for scripts
 
@@ -67,7 +75,8 @@ Frontmatter rules:
 - Include a usage docstring/header and print help when run without arguments.
 - Validate inputs and fail fast with clear error messages.
 - Use sensible default output names rather than overwriting inputs.
-- State runtime dependencies in `SKILL.md` (this repo does not pin a global dependency manifest).
+- State each skill's runtime dependencies in its `SKILL.md`. The separate `.github/tools/vally/` manifest pins validation tooling, not the dependencies needed to execute skills.
+- Keep any skill-level `npm test` command deterministic and free of model calls; model-based evaluations are separate, explicitly authorized work.
 - Style guide
   - If a script is written in Python, it should follow the [Style Guild for Python Code](https://peps.python.org/pep-0008/).
   - If a script is written in JavaScript, it should follow the [Guidelines for writing JavaScript code examples](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Code_style_guide/JavaScript).
@@ -82,10 +91,8 @@ Frontmatter rules:
 
 ## Repository maintenance
 
-Maintain `README.md`, `marketplace.json`, and the skill keywords in `plugin.json` when adding, renaming, or removing a skill. The other host manifests point to the complete collection and canonical `skills/` directory.
+Use [repository maintenance](docs/repository-maintenance.md) for the metadata checklist and validation commands. Keep the collection plugin and individual skill plugins distinct; other host manifests expose the complete collection.
 
-Each skill also needs its own `skills/<skill-name>/plugin.json` for individual Copilot plugin installation. Its `name` must match the skill directory, its version must match the marketplace entry, and `"skills": "./"` points to the existing skill at that plugin's root.
+Run repository tests from the root with `node --test` on Node.js 24 or newer; they do not require an npm install. Static skill linting additionally needs the pinned Vally dependencies. CI installs those dependencies in its temporary runner directory, runs repository tests and static linting, and runs deterministic npm tests for skills that have `package.json`.
 
-Authoring helpers such as `create-skill` are external tools. Use an available installation or obtain approval to install one on demand; do not vendor the helper into this collection. Preserve repository-specific content when following an external generator's instructions.
-
-CI installs the pinned Vally dependencies on its runner. Only dependency manifests, lockfiles, repository-specific checks, and link policy are committed. See `docs/repository-maintenance.md` for local equivalents. There is no managed-state directory, local repository generator, or GitHub Pages deployment.
+Only dependency manifests, lockfiles, repository-specific checks, and link policy are committed for validation. Preserve custom repository content. Do not introduce a managed-state directory, vendored authoring tools, model-based CI evaluations, or a GitHub Pages deployment.

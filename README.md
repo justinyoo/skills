@@ -12,22 +12,26 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 ```text
 .
 ├── AGENTS.md             # Guidance for AI coding agents working in this repository
+├── docs/                 # Installation and maintenance guides
 └── skills/
     └── <skill-name>/
         ├── SKILL.md      # Required: skill description and usage instructions
+        ├── plugin.json   # Required: individual Copilot plugin metadata
+        ├── thumbnail.png # Optional: rendered thumbnail
+        ├── thumbnail.svg # Optional: editable thumbnail source
         └── scripts/      # Optional: supporting scripts the skill runs
 ```
 
 - Each skill lives in its own directory under `skills/<skill-name>/`.
 - `<skill-name>` is lowercase, hyphen-separated (kebab-case), e.g. `pptx-denote`.
-- Every skill directory **must** contain a `SKILL.md`.
+- Every skill directory **must** contain `SKILL.md` and `plugin.json`. The skill frontmatter name and plugin name must match the directory; the plugin's `"skills": "./"` exposes that directory's `SKILL.md`.
 - Supporting code goes in a `scripts/` subdirectory inside the skill.
 - Skills may include additional subdirectories for supporting resources, such as reference documents, templates, or rules, as documented in their `SKILL.md`.
 
 ## Available skills
 
-| Skill                                                    | Description |
-| -------------------------------------------------------- | ----------- |
+| Skill                                            | Description |
+| ------------------------------------------------ | ----------- |
 | [`create-prd`](skills/create-prd/SKILL.md)       | Generate or update a product requirements document (PRD) from user-provided context and interviews to fill missing details. |
 | [`create-tdd`](skills/create-tdd/SKILL.md)       | Generate or update a technical design document (TDD) from a required PRD and TRD through design proposals and adaptive interviews, with references to existing ADRs. |
 | [`create-trd`](skills/create-trd/SKILL.md)       | Generate or update a technical requirements document (TRD) as a PRD companion through adaptive interviews, asking to create a PRD first when missing. |
@@ -89,18 +93,19 @@ If the helper is unavailable or you prefer to author the skill directly:
 
 1. Create `skills/<skill-name>/`.
 2. Add a `SKILL.md` with valid YAML frontmatter (`name`, `description`).
-3. Place any executable code under `scripts/` and document the exact invocation in `SKILL.md`.
-4. List prerequisites (libraries, tools) and how to install them.
-5. Keep the skill self-contained, single-purpose, and idempotent where possible.
+3. Add `plugin.json` with the same skill name, a version matching its marketplace entry, and `"skills": "./"`.
+4. Place any executable code under the skill's `scripts/` directory and document the exact invocation in `SKILL.md`.
+5. List prerequisites (libraries, tools) and how to install them.
+6. Keep the skill self-contained, single-purpose, and idempotent where possible.
 
-With either method, add a matching `plugin.json` inside the skill directory for individual Copilot plugin installation, and keep the [available-skills table](#available-skills), [marketplace registration](marketplace.json), and skill keywords in the collection's [plugin.json](plugin.json) consistent with the new skill. See [AGENTS.md](AGENTS.md) for the full set of conventions.
+With either method, follow the [skill-change checklist](docs/repository-maintenance.md#skill-change-checklist) to keep the README, marketplace entries, plugin metadata, and any applicable dependency configuration consistent. See [AGENTS.md](AGENTS.md) for authoring conventions.
+
+## Repository maintenance
+
+See [repository maintenance](docs/repository-maintenance.md) for the skill-change checklist, dependency-free local repository tests, optional static skill linting, and CI behavior.
+
+This repository contains the authored skills and their distribution manifests, not a bundled repository generator or `create-skill` installation. GitHub Actions installs the pinned validation tools into its temporary runner directory. GitHub Pages is not configured.
 
 ## Contributing
 
 Contributions of new skills are welcome. Follow the conventions in [AGENTS.md](AGENTS.md) and keep each skill focused on a single, well-defined task.
-
-## Repository maintenance
-
-See [repository maintenance](docs/repository-maintenance.md) for CI validation and on-demand authoring tools.
-
-This repository contains the authored skills and their distribution manifests, not a bundled repository generator or `create-skill` installation. GitHub Actions installs the pinned validation tools into its temporary runner directory. GitHub Pages is not configured.
