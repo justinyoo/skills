@@ -26,6 +26,16 @@ Assess the content and intended use, not the number of headings, pages, answers,
 - The PRD is internally consistent, with no unresolved contradiction hidden by a confident summary or silently changed scope.
 - No instructional placeholders or unused example rows remain. A meaningful entry such as "Unknown: retention period; blocks data lifecycle design" is different from an unexplained template token.
 
+### Reader and language checks
+
+- Document readers, their decisions or tasks, and consequential knowledge assumptions are clear and distinct from product users. Content supports those tasks without unnecessary detail.
+- Terms are consistent, necessary specialist concepts remain accurate, and unfamiliar terms or acronyms are explained near first use where needed.
+- Requirements make actors, conditions, permissions, and mandatory behavior clear. Proposal state is separate from obligation strength.
+- Language edits preserve values, units, measurement conditions, comparisons, negation, exceptions, uncertainty, source status, stable IDs, and exact technical strings.
+- Headings, links, and record layouts help readers find scope, acceptance criteria, and authoritative blocker records without competing copies.
+- An author walkthrough can locate the release boundary, acceptance criteria for an essential journey, and the most consequential open decision. Missing or ambiguous answers are findings, not invitations to invent decisions.
+- Review limitations distinguish author review from actual reader testing. No readability score, standards certification, technical correctness, or accessibility conformance is inferred from clear prose.
+
 ## Document status
 
 | Status               | Conditions |
@@ -37,6 +47,8 @@ Assess the content and intended use, not the number of headings, pages, answers,
 Use the highest status whose conditions are fully supported; otherwise retain `Draft`. If the intended use or requested readiness is unclear and affects the interview, ask. Do not force an exploratory PRD to reach implementation-ready.
 
 A blocking unknown is one whose resolution could materially change agreed scope, required behavior, permissions, data handling, safety, or acceptance. A request to "finish now" permits delivering a draft, not inventing a resolution. Unknown owners or missing evidence should not be assigned harmlessness without a basis.
+
+Treat wording ambiguity as a blocker when its interpretations could change scope, permissions, implementation, or acceptance. Stylistic preferences, sentence length alone, and absence of reader testing are not automatic blockers. Preserve the requested language rather than imposing English vocabulary or counting rules.
 
 `Implementation-ready` describes the document's suitability for starting work. It does not assert that the product has passed testing, compliance review, or release criteria. Do not use `Approved` or claim stakeholder sign-off without explicit evidence of that approval.
 

@@ -45,6 +45,16 @@ Assess the actual TDD against the governing PRD, TRD, applicable ADRs, accessibl
 - Material upstream changes have been reconciled and readiness reassessed.
 - No code implementation, infrastructure changes, dependency installation, experiments, publication, or extra artifact creation occurred without separate authorization.
 
+### Reader and language checks
+
+- Document readers, their review or implementation tasks, and consequential knowledge assumptions are clear. Content supports those tasks without unnecessary detail.
+- Terminology is consistent with the PRD/TRD, and component names agree across prose and diagrams. Genuine differences are explained; necessary specialist concepts remain accurate, with unfamiliar terms or acronyms explained near first use where needed.
+- Inherited obligations, proposed mechanisms, accepted decisions, and observations remain distinct. Descriptions do not create new requirements or imply proven feasibility.
+- Language edits preserve values, units, measurement conditions, comparisons, negation, exceptions, uncertainty, source status, stable IDs, and exact technical strings.
+- Headings, links, and record layouts help readers find mechanisms, decisions, and authoritative blocker records without competing copies. Important diagrams have adjacent explanations.
+- An author walkthrough can trace an essential flow, identify state ownership and partial-failure behavior, and find the requirement and rationale driving a consequential mechanism.
+- Review limitations distinguish author review from actual reader testing. No readability score, standards certification, technical correctness, feasibility, or accessibility conformance is inferred from clear prose.
+
 ## Document status
 
 | Status               | Conditions |
@@ -56,6 +66,8 @@ Assess the actual TDD against the governing PRD, TRD, applicable ADRs, accessibl
 Use the highest status supported by evidence; otherwise retain `Draft`. Before the prerequisites are satisfied, report generation as blocked instead of producing an empty document.
 
 A design-critical unknown is one whose resolution could materially change required behavior, architecture, boundaries, data integrity, permissions, safety, compatibility, or feasibility. If a prototype or other evidence is needed to settle such a choice, that missing evidence blocks implementation readiness; planned evidence is not a successful result.
+
+Treat wording ambiguity as a blocker when its interpretations could change scope, permissions, implementation, or acceptance. Stylistic preferences, sentence length alone, and absence of reader testing are not automatic blockers. Preserve the requested language rather than imposing English vocabulary or counting rules.
 
 Conversely, implementation-ready does not require running all future implementation tests, producing release evidence, or turning routine coding choices into approval gates. Distinguish design-critical evidence from tests and operational release gates that can only be completed later. Document status is neither approval to start coding nor evidence that the system is ready to ship.
 

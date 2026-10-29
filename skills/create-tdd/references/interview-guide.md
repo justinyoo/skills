@@ -35,6 +35,8 @@ Example opening when the PRD exists but the TRD does not:
 
 Stay within the authorized scope. If external research, experiments, or unavailable sources are needed, identify the evidence gap and obtain the appropriate authorization or accessible material rather than silently expanding the task.
 
+Identify document readers separately from product users. Use supplied context to establish what they need to review or implement and which terms need explanation. If a consequential gap remains, ask one focused question such as "Who will use this design to implement the change?" or "Which design terms will those readers need explained?" Do not ask both at once or add a mandatory reader interview stage. Keep necessary engineering terms and explain them accurately.
+
 ## Choosing the next question
 
 Ask first about conflicts or uncertainty that could invalidate the solution, then costly-to-reverse choices and failure behavior, then feasibility and operational mechanisms. Refine low-impact details only when needed to implement or review the design.

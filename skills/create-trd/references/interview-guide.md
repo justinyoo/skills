@@ -30,12 +30,16 @@ Select only consequential unanswered questions:
 | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | Baseline           | Which PRD revision governs this release?                                                                             |
 | Intended use       | What decision should this TRD enable the engineering team to make?                                                   |
+| Document readers   | Who will use this TRD to implement or verify the change?                                                             |
+| Reader knowledge   | Which contract or technical terms will those readers need explained?                                                |
 | Technical boundary | Which system is responsible for completing this operation?                                                           |
 | Existing behavior  | Which current integration contract must remain compatible?                                                           |
 | Constraint         | Is this platform choice mandated by an existing decision?                                                            |
 | Source conflict    | The PRD requires deletion, but the supplied policy requires retention; which authority should resolve this conflict? |
 
 If a version, owner, or decision is unknown, label it rather than repeatedly asking. Escalate only when the uncertainty affects the baseline or intended readiness.
+
+Distinguish document readers from product users. Establish reader tasks and relevant knowledge from supplied context first; ask only about consequential gaps, not every row above. Use ordinary wording in questions while preserving necessary technical terms. Do not ask the user to replace a precise concept with an inaccurate simpler word.
 
 ## Choosing the next question
 

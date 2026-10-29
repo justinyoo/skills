@@ -4,6 +4,8 @@
 
 Create or update a technical design document (TDD) from a product requirements document (PRD) and a technical requirements document (TRD). The skill investigates available context, proposes solutions with tradeoffs, and asks focused questions to develop a design that satisfies the requirements. Both a PRD and a TRD are required before drafting; here, TDD means technical design document, not test-driven development.
 
+The workflow helps readers trace mechanisms, responsibilities, and design decisions while preserving technical meaning and your chosen language. It uses reader-centered guidance informed by ISO 24495-1 and selected ASD-STE100 principles for English prose, without certifying conformance to either standard.
+
 See [SKILL.md](SKILL.md) for the full workflow and prerequisites.
 
 ## Install with GitHub Copilot CLI

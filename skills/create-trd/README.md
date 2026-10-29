@@ -4,6 +4,8 @@
 
 Create or update a technical requirements document (TRD) as a companion to a product requirements document (PRD). The skill translates product requirements into verifiable technical behavior, interfaces, qualities, and constraints through focused questions. A PRD is required before drafting; if one is missing, the skill asks whether to create it first.
 
+The workflow helps readers find technical obligations and verification conditions while preserving technical meaning and your chosen language. It uses reader-centered guidance informed by ISO 24495-1 and selected ASD-STE100 principles for English prose, without certifying conformance to either standard.
+
 See [SKILL.md](SKILL.md) for the full workflow and prerequisites.
 
 ## Install with GitHub Copilot CLI

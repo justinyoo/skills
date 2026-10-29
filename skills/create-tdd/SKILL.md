@@ -38,6 +38,21 @@ Invoke the skill with a prompt such as:
 
 Read the [TDD template](references/tdd-template.md) before drafting and the [readiness checklist](references/readiness-checklist.md) before assigning a document status. Use the [interview guide](references/interview-guide.md) to screen coverage and choose focused questions.
 
+### Writing policy
+
+Apply these rules to interviews and document prose, adapting detail to the readers and task:
+
+- Distinguish document readers from product users. Establish what readers need to review or implement and any knowledge assumptions that affect the explanation. Use supplied context first; ask only about consequential gaps.
+- Use familiar, precise words and consistent terms for the same concept. Preserve governing PRD/TRD terminology; explain genuine differences rather than silently merging concepts. Keep necessary technical terms and explain unfamiliar terms and acronyms near first use. Add a glossary only when useful.
+- Prefer focused sentences, direct verbs, and clear component responsibilities. Use the same component names in prose and diagrams. Clarify ambiguous pronouns and dense noun groups. Prefer active voice without banning useful passive constructions. Put conditions before actions when readers need them before acting.
+- Distinguish inherited obligations, proposed mechanisms, accepted decisions, and factual descriptions. In English, keep mandatory behavior (`must`), permission (`may`), capability (`can`), and recommendations distinct. Do not turn a design description into a new requirement. Preserve authoritative quotations and contractual or protocol notation.
+- Preserve numbers, units, measurement conditions, comparisons, negation, exceptions, permissions, and uncertainty during language edits. Keep IDs, code, API names, paths, commands, exact UI labels, and quotations intact. If meaning is ambiguous, record the gap rather than guess; route substantive changes through the owning PRD, TRD, or design decision.
+- Use descriptive headings and meaningful links. Point readers to authoritative blocker records near the beginning when needed. Use labeled records instead of wide, prose-heavy tables when easier to scan; preserve fields and references without duplicating their source of truth. Explain important diagrams in adjacent text.
+
+These are original editorial guidelines informed by [ISO 24495-1:2023's scope](https://www.evs.ee/en/iso-24495-1-2023), [PLAIN's reader-centered guidance](https://plainlanguage.com/what-is-plain-language/), and selected [ASD-STE100 Issue 9 principles](https://www.asd-ste100.org/STE_faq.html). The links provide background, not runtime prerequisites. Do not copy the standards or their dictionaries, or claim conformance, certification, or institutional endorsement. A formal conformance request needs a separate assessment; this workflow cannot certify it.
+
+Preserve the requested output language. Do not apply English vocabulary restrictions or word-count rules to other languages, or impose universal sentence limits or readability scores. Clear prose does not establish technical correctness, feasibility, or accessibility conformance.
+
 ## Workflow
 
 ### 1. Establish the PRD and TRD prerequisites
@@ -128,7 +143,14 @@ Once both prerequisites and the foundation are satisfied, use the template to wr
 
 Describe enough architecture, component interactions, data structures, contracts, algorithms, and operational mechanisms to implement and review the consequential choices. Cover relevant normal, invalid, unauthorized, concurrent, duplicate, and partial-failure paths. Reference authoritative specifications rather than maintain conflicting copies.
 
-Use stable design and decision identifiers, preserving an existing unambiguous scheme. Connect every in-scope TRD requirement to a design element, an explicit gap, or a sourced explanation that an unchanged mechanism already satisfies it. Also cover PRD obligations that the TRD explicitly retains without a separate technical requirement, citing the PRD reference rather than inventing a TRD ID. When source IDs are absent, cite sections and revisions without editing upstream merely to add IDs. Trace consequential design elements back to these obligations or other authoritative constraints relevant to this scope. Do not waive a requirement merely because it needs no new code or technical elaboration.
+Preserve stable design and decision identifiers and an existing unambiguous scheme:
+
+- Map every in-scope TRD requirement to a design element, an explicit gap, or a sourced explanation of an unchanged satisfying mechanism.
+- Cover PRD obligations that the TRD retains without a separate technical requirement. Cite the PRD reference rather than inventing a TRD ID.
+- When source IDs are absent, cite sections and revisions. Do not edit upstream merely to add IDs.
+- Trace consequential design elements to these obligations or other authoritative constraints relevant to this scope.
+
+A requirement still applies when it needs no new code or technical elaboration.
 
 Describe how applicable measurable requirements are expected to be met, referencing their workload, environment, boundary, and threshold rather than inventing new targets. Separate design reasoning from demonstrated feasibility. Link verification approaches and required evidence to TRD acceptance; keep planned evidence distinct from actual results.
 
@@ -167,6 +189,8 @@ Perform a separate structured reviewer pass on the actual draft against the PRD,
 For a small design, review directly. Delegate only a substantial bounded investigation that benefits from separate context, using available agents. Supply relevant sources, the draft, decisions, and checklist; request findings only and keep edits and questions with the author. Do not imply independent review when none occurred.
 
 Look for uncovered requirements, accidental scope changes, unsourced constraints, ADR conflicts, inconsistent interfaces/state ownership, security/privacy and failure-path gaps, unsafe migration/rollback, unnecessary complexity, and unsupported feasibility claims. Report concrete findings with affected references, evidence, impact, blocking status, and a correction or focused question. Do not invent findings to meet a quota.
+
+Check relevance, findability, understanding, and use: does the content support the intended readers' tasks, and can they locate and interpret it? As an author walkthrough, trace an essential flow, identify state ownership and partial-failure behavior, and find the requirement and rationale driving a consequential mechanism. Check that descriptions do not imply unapproved obligations or proven feasibility. This is not actual reader testing; disclose evidence limits and do not invent feedback or require reader testing for every small TDD.
 
 Correct drafting errors supported by sources or confirmed decisions. Return unresolved design decisions to the interview and requirement changes to the upstream handoff. Recheck affected areas; when evidence or decisions are unavailable, record the gap instead of inventing a resolution or repeating review without new information.
 

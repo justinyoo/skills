@@ -19,6 +19,8 @@ Choose the first unanswered, consequential question; do not ask this whole list.
 | Outcome           | What should become possible or meaningfully better for that user?  |
 | Context           | Is this a new product or a change to an existing one?              |
 | PRD audience      | Who will use this document to make a decision?                     |
+| Reader task       | What decision should those readers be able to make from this PRD? |
+| Reader knowledge  | Which product terms will those readers need explained?            |
 | Scope             | What is the smallest useful result the first release must deliver? |
 | Non-goal          | What outcome are you deliberately not trying to achieve?           |
 | Release exclusion | Which capability should explicitly stay outside this release?      |
@@ -29,6 +31,8 @@ Choose the first unanswered, consequential question; do not ask this whole list.
 Prefer questions whose answers could change the product direction, release boundary, important user behavior, risk, or acceptance criteria. Resolve a contradiction before refining details that depend on it. Explain why a question matters when that would help the user answer.
 
 Use plain language rather than asking the user to supply product-management terminology. Offer choices when the alternatives are meaningful, but do not steer the user into confirming an unsupported assumption.
+
+Document readers are not necessarily the product's users. Infer their tasks and relevant knowledge from supplied context first. Use the reader questions only when a consequential gap remains; do not make them a new mandatory interview stage. Keep necessary domain terms, explaining unfamiliar ones without changing their meaning.
 
 ## Comprehensive coverage screen
 

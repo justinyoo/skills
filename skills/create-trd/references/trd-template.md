@@ -4,6 +4,8 @@ Use a lean core with conditional modules, not an exhaustive form to fill mechani
 
 Keep core coverage even when merging headings. Expand the applicable areas from the interview guide into the requirements section or separate chapters; there is no minimum page count. Replace placeholders with sourced content, a labeled proposal, or a meaningful unknown. Remove unused example rows and optional sections. Example IDs describe a naming scheme, not requirements to copy into the output.
 
+Use descriptive headings and meaningful links. Preserve PRD terminology and explain unfamiliar terms near first use; keep a glossary only when useful. Tables are optional layouts: use short labeled records if prose-heavy rows become hard to scan, preserving fields, IDs, and authoritative references.
+
 ## Core outline
 
 ```markdown
@@ -19,13 +21,15 @@ Keep core coverage even when merging headings. Expand the applicable areas from 
 | Reviewers | [Known participants, or unknown] |
 | Last updated | [Actual update date] |
 | Sign-off | [Explicit approval for this version, or pending / unknown] |
-| Intended audience | [Who uses this TRD and for which decision] |
+| Intended audience | [Document readers, what they need to decide, implement, or verify, and knowledge assumptions that affect the explanation] |
 | Release scope | [The PRD release or feature scope this TRD covers] |
 | PRD baseline | [Source link or identifier, version/revision or unknown, stated status, and date consulted] |
 
 ## 1. Purpose and PRD relationship
 
 [Brief technical purpose and intended system outcome. Reference the PRD's problem, users, goals, and scope rather than restating them.]
+
+[When useful, point to material blocker records here rather than duplicating their authoritative detail.]
 
 - Product source of truth: [PRD references governing this scope.]
 - Source limitations: [Partial excerpts, unavailable context, or baseline uncertainty, if any.]
@@ -67,7 +71,7 @@ Keep core coverage even when merging headings. Expand the applicable areas from 
 - State and source: [Confirmed or proposed; PRD ID/section and baseline, or other authoritative source.]
 - Rationale: [Why this obligation is necessary for the PRD scope.]
 - Priority / release scope: [Agreed or explicitly proposed; distinguish deferred work.]
-- Requirement: [One clear obligation using "must", with relevant conditions.]
+- Requirement: [Responsible system, relevant condition, and one observable obligation using "must" in English; keep permission, capability, and proposal state distinct.]
 - Rules and boundaries: [Inputs, outputs, state changes, permissions, limits, and exceptions as applicable.]
 - Acceptance criteria: [Observable pass/fail behavior, including relevant boundary, unauthorized, and failure cases.]
 - Verification: [Test, inspection, analysis, or demonstration; conditions and evidence to collect or a verification reference.]
@@ -125,7 +129,7 @@ Keep core coverage even when merging headings. Expand the applicable areas from 
 - Supported status: [Draft / Review-ready / Implementation-ready, with basis.]
 - Material blockers: [Explicit list or none only when supported.]
 - Confirmation / approval: [Known confirmation and its scope; no inferred sign-off.]
-- Review limitations: [Missing sources or unresolved findings, if any.]
+- Review limitations: [Missing sources or unresolved findings; distinguish an author reader-task walkthrough from actual reader testing.]
 
 ### References and glossary
 

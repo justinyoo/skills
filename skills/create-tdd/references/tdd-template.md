@@ -4,6 +4,8 @@ Use this template only after the PRD and TRD prerequisites in the skill workflow
 
 Keep the core coverage, merging headings for a small design note. Expand conditional modules only where they help implement or review consequential choices. Replace placeholders with sourced information, a labeled proposal, or a meaningful unknown; remove instructional text and unused example rows. Example identifiers are a scheme, not design decisions to copy.
 
+Use descriptive headings and meaningful links. Preserve PRD/TRD terminology and explain unfamiliar terms near first use; keep a glossary only when useful. Tables are optional layouts: use short labeled records if prose-heavy rows become hard to scan, preserving fields, IDs, and authoritative references.
+
 ## Core outline
 
 ```markdown
@@ -19,7 +21,7 @@ Keep the core coverage, merging headings for a small design note. Expand conditi
 | Reviewers | [Known reviewers and roles, or unknown] |
 | Last updated | [Actual update date] |
 | Sign-off | [Explicit approval and scope for this version, or pending / unknown] |
-| Intended audience | [Who uses this TDD and the design review or implementation scope it supports] |
+| Intended audience | [Document readers, what they need to review or implement, and knowledge assumptions that affect the explanation] |
 | Release scope | [The PRD/TRD release or feature scope this design covers] |
 | PRD baseline | [Source, version/revision or unknown, stated status, date consulted] |
 | TRD baseline | [Source, version/revision or unknown, stated status, date consulted] |
@@ -28,6 +30,8 @@ Keep the core coverage, merging headings for a small design note. Expand conditi
 ## 1. Design context and scope
 
 [Brief technical purpose and design boundary. Link to product intent and technical obligations instead of repeating the PRD/TRD.]
+
+[When useful, point to material blocker and consequential decision records here rather than duplicating their authoritative detail.]
 
 - In scope: [Affected capabilities, components, and release scope.]
 - Non-goals: [Design exclusions consistent with the requirements.]
@@ -45,7 +49,7 @@ Keep the core coverage, merging headings for a small design note. Expand conditi
 
 ### Architecture and responsibilities
 
-[Explain the simplest credible solution, major boundaries, dependencies, and why it fits the design drivers. Add an inline diagram only if it clarifies the design.]
+[Explain the simplest credible solution, major boundaries, dependencies, and why it fits the design drivers. Name responsible components consistently. Keep inherited obligations, proposed mechanisms, accepted decisions, and observations distinct. Add an inline diagram only if it clarifies the design, with an adjacent explanation.]
 
 | Design ID | Component or mechanism | Responsibility and owned state | Interfaces / dependencies | Requirement or constraint references | State / basis |
 | --------- | ---------------------- | ------------------------------ | ------------------------- | ------------------------------------ | ------------- |
@@ -106,7 +110,7 @@ Keep the core coverage, merging headings for a small design note. Expand conditi
 - Supported status: [Draft / Review-ready / Implementation-ready, with basis from the checklist.]
 - Material blockers: [Explicit list, or none only when supported.]
 - Confirmation / approval: [Confirmed scope, obligations, and consequential design choices; distinguish pending decisions.]
-- Review limitations: [Unavailable context, unresolved findings, and untested assumptions.]
+- Review limitations: [Unavailable context, unresolved findings, and untested assumptions; distinguish an author reader-task walkthrough from actual reader testing.]
 - Deferred nonblocking work: [Known next actions or agreed deferrals with reasons; distinguish later release evidence.]
 
 [A proposed architecture is not an approved design. Readiness does not mean tests passed, release is authorized, or implementation may begin without a separate request.]

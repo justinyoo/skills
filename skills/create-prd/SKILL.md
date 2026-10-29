@@ -33,6 +33,21 @@ Invoke the skill with a prompt such as:
 
 Read the [PRD template](references/prd-template.md) before drafting and the [readiness checklist](references/readiness-checklist.md) before assigning a document status. Use the [interview guide](references/interview-guide.md) to screen coverage and choose focused questions.
 
+### Writing policy
+
+Apply these rules to interviews and document prose, adapting detail to the readers and task:
+
+- Distinguish product users from document readers. Establish what readers need to decide or do and any knowledge assumptions that affect the explanation. Use supplied context first; ask only about consequential gaps.
+- Use familiar, precise words and consistent terms for the same concept. Keep necessary technical terms; explain unfamiliar terms and acronyms near first use. Add a glossary only when useful.
+- Prefer focused sentences, direct verbs, and clear actors. Clarify ambiguous pronouns and dense noun groups. Prefer active voice without banning useful passive constructions. Put conditions before actions when readers need them before acting.
+- For new English requirements, use `must` for mandatory behavior. Distinguish permission (`may`), capability (`can`), recommendations, and descriptions. A proposed requirement can contain `must`; its confirmation state remains separate. Preserve authoritative quotations and contractual or protocol notation rather than mechanically replacing modal verbs.
+- Preserve numbers, units, measurement conditions, comparisons, negation, exceptions, permissions, and uncertainty during language edits. Keep IDs, code, API names, paths, commands, exact UI labels, and quotations intact. If meaning is ambiguous, record the gap rather than guess; a substantive product change requires a product decision, not copyediting.
+- Use descriptive headings and meaningful links. Point readers to authoritative blocker records near the beginning when needed. Use labeled records instead of wide, prose-heavy tables when easier to scan; preserve fields and references without duplicating their source of truth.
+
+These are original editorial guidelines informed by [ISO 24495-1:2023's scope](https://www.evs.ee/en/iso-24495-1-2023), [PLAIN's reader-centered guidance](https://plainlanguage.com/what-is-plain-language/), and selected [ASD-STE100 Issue 9 principles](https://www.asd-ste100.org/STE_faq.html). The links provide background, not runtime prerequisites. Do not copy the standards or their dictionaries, or claim conformance, certification, or institutional endorsement. A formal conformance request needs a separate assessment; this workflow cannot certify it.
+
+Preserve the requested output language. Do not apply English vocabulary restrictions or word-count rules to other languages, or impose universal sentence limits or readability scores. Clear prose does not establish technical correctness or accessibility conformance.
+
 ## Workflow
 
 ### 1. Read and map the context
@@ -87,7 +102,7 @@ The template describes coverage, not mandatory pages. Combine sections for a sma
 
 At meaningful checkpoints, summarize the current understanding and ask for correction or confirmation of a consequential decision. Do not repeatedly redisplay the entire PRD after every answer.
 
-Give requirements stable IDs, rationale, priority or release scope, clear behavior, and observable acceptance criteria. Include actors, conditions, rules, limits, and exceptions where relevant. If these cannot yet be determined, record the gap explicitly instead of supplying vague or invented criteria.
+Give each requirement a stable ID, source, rationale, and priority or release scope. State one primary, externally observable behavior and its acceptance criteria. Include actors, conditions, rules, limits, and exceptions where relevant. Record missing details as gaps rather than supplying vague or invented criteria.
 
 #### Document boundaries
 
@@ -110,6 +125,8 @@ For a small, straightforward PRD, perform a separate, structured review pass dir
 When delegating, provide the current PRD, relevant accessible source context, confirmed user decisions, the checklist, and a bounded review scope. Request findings only; keep document edits and user questions with the author. Do not send supplied material to an external service without authorization.
 
 Look for unsupported claims, contradictions with sources or between sections, scope creep, missing failure behavior, untestable requirements, and unresolved implementation blockers. Reviewing only the PRD is insufficient to establish fidelity to its sources; disclose any missing context that limits the review.
+
+Check relevance, findability, understanding, and use: does the content support the intended readers' tasks, and can they locate and interpret it? As an author walkthrough, find the release boundary, acceptance criteria for an essential journey, and the most consequential open decision. Check terms, actors, conditions, and obligation strength against the sources. This is not actual reader testing; disclose evidence limits and do not invent feedback or require reader testing for every small PRD.
 
 Report concrete findings with the affected section or requirement ID, supporting evidence, impact, whether the issue blocks implementation, and a proposed correction or focused question. Do not invent findings to satisfy a quota.
 
