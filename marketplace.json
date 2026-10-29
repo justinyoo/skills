@@ -33,6 +33,12 @@
     "version": "1.0.0"
   },
   {
+    "name": "korean-technical-writing",
+    "source": "./skills/korean-technical-writing",
+    "description": "Draft, proofread, revise, or review Korean technical and general writing while preserving meaning.",
+    "version": "1.0.0"
+  },
+  {
     "name": "localizations",
     "source": "./skills/localizations",
     "description": "A skill that localizes contents into given locales.",
