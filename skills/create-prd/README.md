@@ -4,6 +4,8 @@
 
 Create or update a product requirements document (PRD) from your idea, existing documents, or feedback. The skill asks focused questions to fill gaps and produces a PRD with clear scope, requirements, and acceptance criteria.
 
+The workflow helps readers find scope and acceptance criteria while preserving technical meaning and your chosen language. It uses reader-centered guidance informed by ISO 24495-1 and selected ASD-STE100 principles for English prose, without certifying conformance to either standard.
+
 See [SKILL.md](SKILL.md) for the full workflow and prerequisites.
 
 ## Install with GitHub Copilot CLI

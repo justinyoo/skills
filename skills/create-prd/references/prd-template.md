@@ -4,6 +4,8 @@ Use the outline below as a starting point, not a form to fill mechanically. Repl
 
 Keep the core information covered even when combining headings. Add conditional modules from the interview guide only where relevant. A small feature may need only a few paragraphs and a short requirements list.
 
+Use descriptive headings and meaningful links. Define unfamiliar terms near first use; keep a glossary only when useful. Tables are optional layouts: use short labeled records if prose-heavy rows become hard to scan, preserving fields, IDs, and authoritative references.
+
 ## Core outline
 
 ```markdown
@@ -19,13 +21,15 @@ Keep the core information covered even when combining headings. Add conditional 
 | Reviewers | [Known collaborators/reviewers, or unknown] |
 | Last updated | [Actual update date] |
 | Sign-off | [Actual sign-off date for this version with explicit approval, or pending / unknown] |
-| Intended audience | [Who will use this PRD and for what decision] |
+| Intended audience | [Document readers, their decision or task, and knowledge assumptions that affect the explanation; distinct from product users] |
 | Release scope | [Named release or scope, if known] |
 | Target release | [Confirmed constraint, proposed date, or unknown; not an invented commitment] |
 
 ## 1. Overview
 
 [Briefly describe the product or change, intended user benefit, and proposed solution direction. Identify whether the solution direction is confirmed or proposed.]
+
+[When useful, point to material blocker records and the release boundary here. Do not duplicate their authoritative detail or add a summary to fill space.]
 
 ## 2. Problem and evidence
 
@@ -77,7 +81,7 @@ Keep the core information covered even when combining headings. Add conditional 
 - User need / rationale: [Why this behavior is necessary; related goal or journey.]
 - Priority / release scope: [Agreed priority, or explicitly proposed.]
 - Actor and trigger: [Who initiates the behavior and under what conditions.]
-- Required behavior: [One clear, externally observable behavior.]
+- Required behavior: [One primary, externally observable behavior with a clear actor and relevant condition; use "must" for new English mandatory obligations, keeping permission and capability distinct.]
 - Rules and boundaries: [Permissions, limits, state changes, and exceptions as relevant.]
 - Acceptance criteria:
   - [Observable condition that demonstrates the requirement is satisfied.]
@@ -137,7 +141,7 @@ Keep the core information covered even when combining headings. Add conditional 
 - Supported status: [Draft / Review-ready / Implementation-ready, with basis from the checklist.]
 - Material blockers: [Explicit list, or none only when supported.]
 - Confirmation / approval: [Known confirmation and its scope; no inferred sign-off.]
-- Review limitations: [Missing sources or unresolved findings, if any.]
+- Review limitations: [Missing sources or unresolved findings; distinguish an author reader-task walkthrough from actual reader testing.]
 
 ### References and glossary
 

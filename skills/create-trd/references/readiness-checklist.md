@@ -33,6 +33,16 @@ Assess the actual document against its PRD baseline, supplied technical sources,
 - There are no unsupported approvals, compliance claims, sensitive examples, invented links, unused example rows, or instructional placeholders. A meaningful unknown is not a placeholder.
 - Existing requirement IDs and unrelated content are preserved, and material baseline changes or superseded requirements are recorded.
 
+### Reader and language checks
+
+- Document readers, their implementation or verification tasks, and consequential knowledge assumptions are clear. Content supports those tasks without unnecessary detail.
+- Terminology is consistent with the PRD; genuine differences are explained. Necessary specialist concepts remain accurate, and unfamiliar terms or acronyms are explained near first use where needed.
+- Requirements identify responsible systems and distinguish mandatory behavior, permission, and capability. Proposal state is separate from obligation strength; descriptions do not introduce unsourced obligations.
+- Language edits preserve values, units, measurement conditions, comparisons, negation, exceptions, uncertainty, source status, stable IDs, and exact technical strings.
+- Headings, links, and record layouts help readers find obligations, verification conditions, and authoritative blocker records without competing copies.
+- An author walkthrough can select an essential operation and locate its responsible system, obligation, exceptions, acceptance criteria, and verification conditions. A tester need not invent a decision to derive pass/fail behavior.
+- Review limitations distinguish author review from actual reader testing. No readability score, standards certification, technical correctness, or accessibility conformance is inferred from clear prose.
+
 ## Document status
 
 | Status               | Conditions |
@@ -44,6 +54,8 @@ Assess the actual document against its PRD baseline, supplied technical sources,
 Use the highest status supported by evidence; otherwise retain `Draft`. Before the PRD prerequisite is met, report generation as blocked rather than creating an empty TRD labeled `Draft`.
 
 A blocking unknown is one whose resolution could materially change scope, required behavior, system boundaries, permissions, data handling, safety, interfaces, or acceptance. Unknown impact cannot simply be labeled nonblocking. A draft or review-ready PRD may support a draft or review-ready TRD; do not require a PRD to contain technical implementation details.
+
+Treat wording ambiguity as a blocker when its interpretations could change scope, permissions, implementation, or acceptance. Stylistic preferences, sentence length alone, and absence of reader testing are not automatic blockers. Preserve the requested language rather than imposing English vocabulary or counting rules.
 
 Distinguish implementation blockers from release gates that are expected to be satisfied later, such as producing verification evidence against already-defined criteria. `Implementation-ready` does not mean the implementation has passed tests, operational checks, compliance review, or release gates. Do not claim `Approved` or sign-off without explicit evidence for the applicable document version.
 

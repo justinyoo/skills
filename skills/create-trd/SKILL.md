@@ -37,6 +37,21 @@ Invoke the skill with a prompt such as:
 
 Read the [TRD template](references/trd-template.md) before drafting and the [readiness checklist](references/readiness-checklist.md) before assigning a document status. Use the [interview guide](references/interview-guide.md) to screen coverage and choose focused questions.
 
+### Writing policy
+
+Apply these rules to interviews and document prose, adapting detail to the readers and task:
+
+- Distinguish document readers from product users. Establish what readers need to decide, implement, or verify and any knowledge assumptions that affect the explanation. Use supplied context first; ask only about consequential gaps.
+- Use familiar, precise words and consistent terms for the same concept. Preserve governing PRD terminology; explain genuine differences rather than silently merging concepts. Keep necessary technical terms and explain unfamiliar terms and acronyms near first use. Add a glossary only when useful.
+- Prefer focused sentences, direct verbs, and clear responsible systems. Clarify ambiguous pronouns and dense noun groups. Prefer active voice without banning useful passive constructions. Put conditions before actions when readers need them before acting.
+- Distinguish mandatory behavior (`must`), permission (`may`), capability (`can`), recommendations, and descriptions in English. Confirmation state remains separate from obligation strength. Preserve authoritative quotations and contractual or protocol notation rather than mechanically replacing modal verbs.
+- Preserve numbers, units, measurement conditions, comparisons, negation, exceptions, permissions, and uncertainty during language edits. Keep IDs, code, API names, paths, commands, exact UI labels, and quotations intact. If meaning is ambiguous, record the gap rather than guess; route substantive changes through the owning PRD or TRD decision.
+- Use descriptive headings and meaningful links. Point readers to authoritative blocker records near the beginning when needed. Use labeled records instead of wide, prose-heavy tables when easier to scan; preserve fields and references without duplicating their source of truth.
+
+These are original editorial guidelines informed by [ISO 24495-1:2023's scope](https://www.evs.ee/en/iso-24495-1-2023), [PLAIN's reader-centered guidance](https://plainlanguage.com/what-is-plain-language/), and selected [ASD-STE100 Issue 9 principles](https://www.asd-ste100.org/STE_faq.html). The links provide background, not runtime prerequisites. Do not copy the standards or their dictionaries, or claim conformance, certification, or institutional endorsement. A formal conformance request needs a separate assessment; this workflow cannot certify it.
+
+Preserve the requested output language. Do not apply English vocabulary restrictions or word-count rules to other languages, or impose universal sentence limits or readability scores. Clear prose does not establish technical correctness or accessibility conformance.
+
 ## Workflow
 
 ### 1. Establish the PRD prerequisite
@@ -135,6 +150,8 @@ Perform a separate, structured reviewer pass on the actual draft against the PRD
 For a small document, review directly. Use an available subagent only when a substantial, bounded investigation benefits from separate context. Provide the current TRD, relevant sources, confirmed decisions, and checklist; request findings only and keep edits and user questions with the author. Do not imply independent review if none occurred.
 
 Look for PRD drift, uncovered product requirements, unsupported technical obligations, accidental design prescriptions, inconsistent constraints, untestable criteria, hidden uncertainty, and missing failure or lifecycle behavior. Report concrete findings with affected source/requirement references, evidence, impact, blocking status, and a correction or focused question. Do not invent findings to meet a quota.
+
+Check relevance, findability, understanding, and use: does the content support the intended readers' tasks, and can they locate and interpret it? As an author walkthrough, select an essential operation and locate its responsible system, obligation, exceptions, acceptance criteria, and verification conditions. Check whether a tester can derive pass/fail behavior without inventing decisions. This is not actual reader testing; disclose evidence limits and do not invent feedback or require reader testing for every small TRD.
 
 Correct drafting errors directly when supported by the existing sources or decisions. Return unresolved technical decisions to the interview and product decisions to the PRD handoff. Recheck affected areas after corrections; if evidence is unavailable or a decision is deferred, record the gap instead of repeating review without new information.
 
