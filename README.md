@@ -36,6 +36,7 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 | [`create-prd`](skills/create-prd/README.md)       | Generate or update a product requirements document (PRD) from user-provided context and interviews to fill missing details. |
 | [`create-tdd`](skills/create-tdd/README.md)       | Generate or update a technical design document (TDD) from a required PRD and TRD through design proposals and adaptive interviews, with references to existing ADRs. |
 | [`create-trd`](skills/create-trd/README.md)       | Generate or update a technical requirements document (TRD) as a PRD companion through adaptive interviews, asking to create a PRD first when missing. |
+| [`korean-technical-writing`](skills/korean-technical-writing/README.md) | Draft, proofread, revise, or review Korean technical and general writing while preserving meaning. |
 | [`localizations`](skills/localizations/README.md) | Localize content into the supported target locales using locale-specific rules. |
 | [`pptx-denote`](skills/pptx-denote/README.md)     | Remove all slide notes from a PowerPoint presentation using the `python-pptx` library. |
 
