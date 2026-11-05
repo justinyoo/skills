@@ -39,6 +39,7 @@ Agents discover a skill by reading its `SKILL.md`, then follow the instructions 
 | [`korean-technical-writing`](skills/korean-technical-writing/README.md) | Draft, proofread, revise, or review Korean technical and general writing while preserving meaning. |
 | [`localizations`](skills/localizations/README.md) | Localize content into the supported target locales using locale-specific rules. |
 | [`pptx-denote`](skills/pptx-denote/README.md)     | Remove all slide notes from a PowerPoint presentation using the `python-pptx` library. |
+| [`technical-writing`](skills/technical-writing/README.md) | Draft, proofread, revise, or review English technical and general writing while preserving meaning. |
 
 ## Using a skill
 
