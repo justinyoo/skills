@@ -49,6 +49,12 @@
     "source": "./skills/pptx-denote",
     "description": "A skill that allows you to remove all the slide notes in a PowerPoint presentation using the `python-pptx` library.",
     "version": "1.0.0"
+  },
+  {
+    "name": "technical-writing",
+    "source": "./skills/technical-writing",
+    "description": "Draft, proofread, revise, or review English technical and general writing while preserving meaning.",
+    "version": "1.0.0"
   }
 ]
 }

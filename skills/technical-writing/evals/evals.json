@@ -1,0 +1,168 @@
+{
+  "skill_name": "technical-writing",
+  "evaluation_status": "not_run",
+  "description": "Unrun evaluation inputs and grading criteria. Structure checks do not verify model output or writing performance.",
+  "evals": [
+    {
+      "id": 1,
+      "scenario": "preserve-observed-measurements",
+      "prompt": "Revise this observation for clarity without adding facts: Under condition A, we observed 12 samples for 2 h. The largest observed voltage deviation was 0.1 V. The observation applies only to condition A.",
+      "expected_output": "A clear observation that preserves all quantities, the observation's scope, and its evidentiary limits.",
+      "assertions": [
+        "The sample count remains 12, the observation period remains 2 h, and the maximum observed deviation remains 0.1 V.",
+        "The deviation is described as observed, not as a guaranteed maximum.",
+        "The observation is limited to condition A.",
+        "No cause, product guarantee, or new test result is invented."
+      ]
+    },
+    {
+      "id": 2,
+      "scenario": "preserve-obligations-and-conditions",
+      "prompt": "Revise for clarity without changing the requirements: The administrator may restart the service only if a backup has completed. They must not disable audit logging, even after restarting.",
+      "expected_output": "A revision that preserves the restart permission, necessary backup condition, and prohibition on disabling audit logging.",
+      "assertions": [
+        "Restarting remains permitted rather than required.",
+        "A completed backup remains a necessary condition, not a guarantee or instruction to restart.",
+        "Disabling audit logging remains prohibited before and after the restart.",
+        "The administrator remains the actor."
+      ]
+    },
+    {
+      "id": 3,
+      "scenario": "minimal-proofreading-existing-variant",
+      "prompt": "Proofread only. Keep the first-person voice and UK spelling: I have wrote that the service was initialised and its colour changed.",
+      "expected_output": "I have written that the service was initialised and its colour changed.",
+      "assertions": [
+        "The grammatical error is corrected to 'have written'.",
+        "The first-person voice is preserved.",
+        "The UK spellings 'initialised' and 'colour' remain unchanged.",
+        "The sentence is not unnecessarily restructured or expanded with new facts."
+      ]
+    },
+    {
+      "id": 4,
+      "scenario": "new-document-us-default",
+      "prompt": "Draft one sentence for a new English document with no specified locale or house style. Convey only this fact: a setting changes the colour of the label.",
+      "expected_output": "A concise sentence using the US spelling 'color' and preserving the supplied fact.",
+      "assertions": [
+        "The new sentence uses US English, including 'color'.",
+        "It says that a setting changes the label's color.",
+        "It does not invent a color, condition, product behavior, or follow-up action."
+      ]
+    },
+    {
+      "id": 5,
+      "scenario": "technical-procedure-safety",
+      "prompt": "Organize this as a procedure without changing its meaning or executing anything: A backup must finish before an administrator runs `svcctl restart --safe`. Restarting interrupts active sessions; warn readers before they run the command. Do not add a verification command.",
+      "expected_output": "A procedure that states the completed-backup prerequisite and session-interruption warning before the unchanged command.",
+      "assertions": [
+        "The backup must be complete before the restart command.",
+        "The administrator remains the actor.",
+        "The interruption warning appears before the restart action.",
+        "The command `svcctl restart --safe` is preserved exactly and is not executed.",
+        "No verification command or claimed execution result is added."
+      ]
+    },
+    {
+      "id": 6,
+      "scenario": "protect-literal-text-and-punctuation",
+      "prompt": "Proofread only. Preserve the exact quoted title \"Plan\u2014apply; verify\" and the code `tool --filter=\"a;b\"`. Do not normalize punctuation.",
+      "expected_output": "A response that preserves the title, em dash, semicolon, and code exactly and does not invent punctuation errors.",
+      "assertions": [
+        "The quoted title \"Plan\u2014apply; verify\" remains exact if repeated.",
+        "The code `tool --filter=\"a;b\"` remains exact if repeated and is not executed.",
+        "The em dash and semicolons are not treated as errors merely because of their form.",
+        "The punctuation is not used as evidence of AI authorship."
+      ]
+    },
+    {
+      "id": 7,
+      "scenario": "review-only-conflict",
+      "prompt": "Review only; do not save or edit files: The cache deletes each record after 30 seconds. The same record remains in the cache for at least 60 seconds.",
+      "expected_output": "A review finding that identifies the conflicting retention statements and asks for the authoritative behavior.",
+      "assertions": [
+        "The finding identifies the conflicting 30-second and 60-second statements.",
+        "It does not select or invent the correct retention period.",
+        "It provides a useful question or suggestion for resolving the conflict.",
+        "No file modification is made or claimed."
+      ]
+    },
+    {
+      "id": 8,
+      "scenario": "general-email-no-invention",
+      "prompt": "Draft a brief email using only these facts: the workshop is postponed and the new date has not been decided. Do not invent a reason or promise a follow-up.",
+      "expected_output": "A brief email that communicates the postponement and undecided date without adding unsupported facts or commitments.",
+      "assertions": [
+        "Both the postponement and the undecided new date are stated.",
+        "No reason, new date, or follow-up promise is invented.",
+        "The result is an email rather than a technical procedure."
+      ]
+    },
+    {
+      "id": 9,
+      "scenario": "no-standards-certification",
+      "prompt": "Make this English sentence clearer using plain-language and STE-inspired principles. Can you certify that it conforms to ISO 24495-1 and ASD-STE100? Text: Users can use the tool.",
+      "expected_output": "A clearer sentence and an explicit statement that this skill cannot certify conformity.",
+      "assertions": [
+        "The revision preserves capability rather than turning it into an obligation.",
+        "The response does not claim ISO or ASD-STE100 compliance or certification.",
+        "The response does not claim institutional approval or verification of a complete standard."
+      ]
+    },
+    {
+      "id": 10,
+      "scenario": "ask-about-ambiguous-referent",
+      "prompt": "Revise this sentence without guessing what either 'it' refers to: After updating it, restart it. No other context is available.",
+      "expected_output": "A clarification request or explicit ambiguity finding without assigning an invented referent.",
+      "assertions": [
+        "The unclear referents are identified or a focused clarification is requested.",
+        "No component, document, person, or system is invented as the referent.",
+        "The order of updating before restarting is not reversed."
+      ]
+    },
+    {
+      "id": 11,
+      "scenario": "house-style-for-new-document",
+      "prompt": "Draft one sentence for a new English guide. The project style requires UK English. The only supplied fact is that a setting changes the color of the status label.",
+      "expected_output": "A concise sentence that uses 'colour' in accordance with the project style and preserves the supplied fact.",
+      "assertions": [
+        "The explicit project style takes precedence over the new-document US default.",
+        "The sentence uses the UK spelling 'colour'.",
+        "The label and the effect of the setting remain unchanged, with no invented details."
+      ]
+    },
+    {
+      "id": 12,
+      "scenario": "preserve-uncertainty",
+      "prompt": "Polish this sentence without strengthening its claim: The change might reduce latency; no measurements have been taken.",
+      "expected_output": "A clear sentence that preserves both the possibility of reduced latency and the absence of measurements.",
+      "assertions": [
+        "Reduced latency remains a possibility, not a confirmed result or guarantee.",
+        "The absence of measurements remains explicit.",
+        "No measurement, percentage, cause, or validation is invented."
+      ]
+    },
+    {
+      "id": 13,
+      "scenario": "preserve-range-boundaries",
+      "prompt": "Rewrite this requirement clearly without changing its boundaries or units: The sensor reading must be below 25 \u00b0C and at least -3 \u00b0C.",
+      "expected_output": "A requirement preserving the exclusive 25 \u00b0C upper bound and the inclusive -3 \u00b0C lower bound.",
+      "assertions": [
+        "The upper boundary remains strictly below 25 \u00b0C.",
+        "The lower boundary remains at least -3 \u00b0C, including -3 \u00b0C.",
+        "The negative sign, values, units, and mandatory status remain unchanged."
+      ]
+    },
+    {
+      "id": 14,
+      "scenario": "save-needs-destination",
+      "prompt": "Please save a proofread version of this text to a file: The service respond slowly. I have not given you a file path.",
+      "expected_output": "A request for the destination path without creating a default file or claiming a successful save.",
+      "assertions": [
+        "The response asks for a destination because no file path was supplied.",
+        "No default file is created and no successful save is claimed.",
+        "Any corrected text offered while awaiting the path does not imply that it was saved."
+      ]
+    }
+  ]
+}
