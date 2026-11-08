@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "justinyoo-skills",
   "description": "A curated collection of skills for AI coding agents.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": {
     "name": "Justin Yoo",
     "url": "https://github.com/justinyoo"

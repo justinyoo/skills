@@ -2,7 +2,7 @@
 name: create-prd
 description: A skill that generates or updates a product requirements document (PRD) from user-provided context through adaptive interviews to fill missing details.
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
 ---
 
 # Create a product requirements document

@@ -7,7 +7,7 @@ description: >-
   Do not use for non-English output, translation or localization workflows,
   executing documented commands, or certifying compliance with a standard.
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
 ---
 
 # Technical Writing in English
