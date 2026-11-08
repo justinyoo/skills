@@ -1,10 +1,12 @@
 # Create TRD
 
+English | [한국어](README.ko.md)
+
 ## What this skill is for
 
 Create or update a technical requirements document (TRD) as a companion to a product requirements document (PRD). The skill translates product requirements into verifiable technical behavior, interfaces, qualities, and constraints through focused questions. A PRD is required before drafting; if one is missing, the skill asks whether to create it first.
 
-The workflow helps readers find technical obligations and verification conditions while preserving technical meaning and your chosen language. It uses reader-centered guidance informed by ISO 24495-1 and selected ASD-STE100 principles for English prose, without certifying conformance to either standard.
+The workflow helps readers find technical obligations and verification conditions while preserving technical meaning and your chosen language. It uses reader-centered guidance informed by ISO 24495-1 and selected ASD-STE100 principles for English prose. For an additional language-focused review, use the `/technical-writing` skill for English documents or the `/korean-technical-writing` skill for Korean documents. These skills draw on selected principles and do not claim standards conformance or certification.
 
 See [SKILL.md](SKILL.md) for the full workflow and prerequisites.
 

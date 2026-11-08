@@ -1,11 +1,13 @@
 # Skills for AI Coding Agents
 
+English | [한국어](README.ko.md)
+
 A curated collection of **skills** for AI coding agents. A skill packages domain-specific knowledge and, optionally, runnable scripts that an agent can read and execute to perform a well-defined task — for example, removing speaker notes from a PowerPoint file.
 
 Agents discover a skill by reading its `SKILL.md`, then follow the instructions and invoke the bundled scripts as needed.
 
 > [!NOTE]
-> Start with the [GitHub Copilot example](#installing-skills) below. See the [Skills installation guide](docs/skills-installation-guide.md) for other agents, installation scopes, local checkouts, and native marketplace/plugin methods.
+> Start with the [GitHub Copilot CLI installation instructions](#installing-skills) below. See the [Skills installation guide](docs/skills-installation-guide.md) for other agents, installation scopes, local checkouts, and native marketplace/plugin methods.
 
 ## Repository structure
 

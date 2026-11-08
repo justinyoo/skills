@@ -1,8 +1,10 @@
 # Localizations
 
+English | [한국어](README.ko.md)
+
 ## What this skill is for
 
-Localize a project's root README and Markdown documentation into the target locales supported by the skill's locale rules. The skill preserves Markdown structure, code, and links, reviews translations for quality, and uses recorded source baselines to update changed content without unnecessarily retranslating unchanged sections.
+Localize a project's root README and Markdown documentation into the target locales supported by the skill's locale rules. The skill preserves Markdown structure, code, and links, reviews translations for quality, and uses saved copies of the original source text to identify changes and update translations without unnecessarily retranslating unchanged sections.
 
 See [SKILL.md](SKILL.md) for the full workflow and prerequisites.
 

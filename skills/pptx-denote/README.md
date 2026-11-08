@@ -1,5 +1,7 @@
 # Remove PowerPoint slide notes
 
+English | [한국어](README.ko.md)
+
 ## What this skill is for
 
 Remove slide notes from a PowerPoint (`.pptx`) presentation and save a new file with the same slides but without the notes. Use it to prepare a copy for sharing without speaker notes. The skill uses Python and the `python-pptx` library; by default, the output filename adds `-denoted` to the original name.
