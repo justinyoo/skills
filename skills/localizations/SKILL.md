@@ -1,6 +1,8 @@
 ---
 name: localizations
 description: A skill that localizes contents into given locales.
+metadata:
+  version: "1.1.0"
 ---
 
 # Localize contents into given locales

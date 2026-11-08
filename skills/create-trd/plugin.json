@@ -1,6 +1,6 @@
 {
   "name": "create-trd",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Generate or update technical requirements as a companion to a PRD.",
   "license": "MIT",
   "skills": "./"

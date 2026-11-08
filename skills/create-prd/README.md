@@ -1,10 +1,12 @@
 # Create PRD
 
+English | [한국어](README.ko.md)
+
 ## What this skill is for
 
 Create or update a product requirements document (PRD) from your idea, existing documents, or feedback. The skill asks focused questions to fill gaps and produces a PRD with clear scope, requirements, and acceptance criteria.
 
-The workflow helps readers find scope and acceptance criteria while preserving technical meaning and your chosen language. It uses reader-centered guidance informed by ISO 24495-1 and selected ASD-STE100 principles for English prose, without certifying conformance to either standard.
+The workflow helps readers find scope and acceptance criteria while preserving technical meaning and your chosen language. It uses reader-centered guidance informed by ISO 24495-1 and selected ASD-STE100 principles for English prose. For an additional language-focused review, use the `/technical-writing` skill for English documents or the `/korean-technical-writing` skill for Korean documents. These skills draw on selected principles and do not claim standards conformance or certification.
 
 See [SKILL.md](SKILL.md) for the full workflow and prerequisites.
 

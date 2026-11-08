@@ -1,5 +1,7 @@
 # Technical Writing in English
 
+English | [한국어](README.ko.md)
+
 ## What this skill is for
 
 Draft, proofread, revise, or review English technical documents and other English writing while preserving meaning, evidence, terminology, and the author's voice. Existing document and project styles take priority; US English is the default for new documents without a specified variant. No scripts, packages, or external correction service are required.

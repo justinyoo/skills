@@ -1,6 +1,8 @@
 ---
 name: create-tdd
 description: A skill that generates or updates a technical design document (TDD) from a required PRD and TRD through grounded design proposals and adaptive interviews, referencing existing ADRs without automatically creating them.
+metadata:
+  version: "1.1.0"
 ---
 
 # Create a technical design document
