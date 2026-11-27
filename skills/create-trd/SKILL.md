@@ -2,7 +2,7 @@
 name: create-trd
 description: A skill that generates or updates a technical requirements document (TRD) as a PRD companion through adaptive interviews, asking to create a PRD first when one is missing.
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
 ---
 
 # Create a technical requirements document

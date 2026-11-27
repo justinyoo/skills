@@ -1,0 +1,7 @@
+{
+  "name": "pptx-layout",
+  "version": "1.1.2",
+  "description": "Place provided slide content in existing PowerPoint template layouts and save a new presentation.",
+  "license": "MIT",
+  "skills": "./"
+}
