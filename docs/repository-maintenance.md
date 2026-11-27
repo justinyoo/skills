@@ -39,6 +39,8 @@ The existing PRD/TRD/TDD handoff links are explicitly listed in `.github/tools/v
 
 Dependency manifests, lockfiles, and policy stay in Git to make CI repeatable. Dependabot updates the validation dependencies and covers authored skills only when they have an actual npm package. Documentation-only and Python-only skills do not need dummy packages.
 
+Dependabot checks `.github/tools/vally/` weekly. A new release or update PR does not change the default branch's validation tools until the manifest and lockfile changes are merged. When reviewing a Vally update, run the repository tests and static skill lint, and preview `create-skill` without applying it: the external helper checks the **exact CLI version** in the lockfile. Dependabot does not update that helper. If the versions do not match, report the mismatch and review a compatible helper before relying on assisted authoring; do not silently switch versions or bypass the check.
+
 ## Local validation
 
 From the repository root with Node.js 24 or newer:

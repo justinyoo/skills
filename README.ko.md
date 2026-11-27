@@ -41,6 +41,7 @@ AI 코딩 에이전트를 위한 **스킬** 모음입니다. 스킬은 특정 �
 | [`korean-technical-writing`](skills/korean-technical-writing/README.md) | 의미를 보존하면서 한국어 기술 문서와 일반 문서를 작성, 교정, 수정 또는 검토합니다. |
 | [`localizations`](skills/localizations/README.ko.md) | 로케일별 규칙에 따라 지원 대상 로케일로 콘텐츠를 현지화합니다. |
 | [`pptx-denote`](skills/pptx-denote/README.ko.md) | `python-pptx` 라이브러리를 사용하여 PowerPoint 프레젠테이션의 모든 슬라이드 노트를 제거합니다. |
+| [`pptx-layout`](skills/pptx-layout/README.ko.md) | 제공된 문구, 이미지 또는 데이터 차트를 PowerPoint 템플릿의 기존 레이아웃에 배치하고 새 프레젠테이션으로 저장합니다. |
 | [`technical-writing`](skills/technical-writing/README.ko.md) | 의미를 보존하면서 영어 기술 문서와 일반 문서를 작성, 교정, 수정 또는 검토합니다. |
 
 ## 스킬 사용 방법
